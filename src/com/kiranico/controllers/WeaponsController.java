@@ -1,11 +1,8 @@
 package com.kiranico.controllers;
 
-import java.io.File;
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kiranico.backend.MaterialFactory;
+import com.kiranico.backend.HHNotesFactory;
 import com.kiranico.backend.WeaponFactory;
+import com.kiranico.entities.Melody;
 import com.kiranico.entities.Weapon;
 
 @Controller
+@SuppressWarnings("unused")
 public class WeaponsController {
 	private static final String weapon_img_dir = "/../WebContent/WEB-INF/imgs/weapons";
 	private final int ALL = 0;
@@ -41,70 +40,24 @@ public class WeaponsController {
 	public ModelAndView getWeapon(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="weapon_name") String weapon_name) {
 		ModelAndView view = new ModelAndView("SingleWeapon");
 		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
-		MaterialFactory mf = MaterialFactory.getMaterialFactoryInstance();
 		Weapon target = wf.getWeapon(weapon_name);
 		if (target != null) {
-			
-			//Construct "slots"
-			int[] slots = {target.getSlot_1(), target.getSlot_2(), target.getSlot_3()};
-			StringBuilder slotString = new StringBuilder();
-			for (int i = 0; i < slots.length; i ++) {
-				if (slots[i] == 0) {
-					slotString.append("-"); 
-				}else {
-					slotString.append(Integer.toString(slots[i]));
+			HashMap<String, Object> weapon_attrs = target.getAttributesMap();
+			List<Weapon> family = wf.getWeaponFamily(target.getName());
+			weapon_attrs.put("family", family);
+			view.addAllObjects(weapon_attrs);
+			System.out.println(target.getWeapon_type());
+			if (target.getWeapon_type().equals("hunting-horn")) {
+				HHNotesFactory hhnf = HHNotesFactory.getHHNFactoryInstance();
+				List<Melody> melodies = hhnf.getMelodiesByName(target.getName());
+				System.out.println(String.format("-------- %s [%s] --------", target.getName(), target.getNotes()));
+				for (Melody m : melodies) {
+					System.out.println(m + " ");
 				}
+				
+				view.addObject("melodies", melodies);
 			}
-			//Construct "element"
-			StringBuilder elementString = new StringBuilder();
-			boolean isHidden = target.getElement_hidden();
-			String ele1 = target.getElement1();
-			Integer ele1_atk = target.getElement1_atk();
-			if (ele1_atk == null) {
-				elementString.append("-");
-			}else {
-				elementString.append(Integer.toString(ele1_atk));
-				elementString.append(" ");
-				elementString.append(ele1.toLowerCase());
-			}
-			if (isHidden) elementString.append("\n(hidden)");
-			
-			List<Weapon> family = wf.getWeaponFamily(weapon_name);
-			HashMap<String, Integer> materials = target.getMaterials();
-			
-			for (Map.Entry<String, Integer> entry : materials.entrySet()) {
-			    String key = entry.getKey();
-			    Integer value = entry.getValue();
-			    System.out.println(String.format("%d %s", value, key));
-			}
-			
-			StringBuilder weapon_img_path = new StringBuilder();
-			String curr_dir = Paths.get("").toAbsolutePath().toString();
-			String img_filename = weapon_name + ".png";
-			img_filename = "buster_sword.png";
-			weapon_img_path.append(curr_dir);
-			weapon_img_path.append("\\");
-			//weapon_img_path.append(weapon_img_dir);
-			weapon_img_path.append(img_filename);
-			String img_path = weapon_img_path.toString();
-			//System.out.println(img_path);
-			//System.out.println(new File(img_path).exists());
-			
-			view.addObject("name", target.getName());
-			view.addObject("attack", target.getAttack());
-			view.addObject("element", elementString.toString());
-			view.addObject("affinity", Integer.toString(target.getAffinity()) + "%");
-			view.addObject("slots", slotString.toString());
-			view.addObject("rarity", target.getRarity());
-			view.addObject("family", family);
-			view.addObject("materials", materials);
-			view.addObject("weapon_type", weapon_type);
-			view.addObject("img_path", weapon_img_path.toString());
-			
-			
 		}
-		
-		view.addObject("name", weapon_name);
 		return view;
 	}
 	

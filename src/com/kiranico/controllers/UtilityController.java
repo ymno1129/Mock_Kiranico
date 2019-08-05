@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kiranico.backend.WeaponFactory;
 import com.kiranico.entities.Weapon;
-import com.kiranico.entities.WeaponQuery;
+import com.kiranico.misc.WeaponQuery;
 
 @Controller
 public class UtilityController {

@@ -69,7 +69,12 @@
 		</tbody>
 	</table>
 	<hr/>
-	<h2>${information}</h2>
-
+	<c:choose>
+	    <c:when test = "${weapon_type == 'hunting-horn'}"> 
+	    	<c:set var="melodies" scope="request" value="${melodies}"/>
+	    	<jsp:include page="/WEB-INF/weapon_specific_pages/HHNotes.jsp"/>
+	    </c:when>
+		<c:otherwise></c:otherwise>
+	</c:choose>
 </body>
 </html>

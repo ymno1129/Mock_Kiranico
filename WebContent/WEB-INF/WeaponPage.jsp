@@ -12,25 +12,25 @@
 	<table>
 		<tr>
 			<td>Name</td>
-			<td style="text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/attack">Attack</a></td>
-			<td style="text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/element">Element</a></td>
-			<td style="text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/element_atk">Element Attack</a></td>
-			<td style="text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/rarity">Rarity</a></td>
+			<td style="width: 127px; text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/attack">Attack</a></td>
+			<td style="width: 127px; text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/element">Element</a></td>
+			<td style="width: 127px; text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/element_atk">Element Attack</a></td>
+			<td style="width: 127px; text-align: center"><a href="/Mock_Kiranico/Weapon/${weapon_type}/sort_by/rarity">Rarity</a></td>
 		</tr>
   		<c:forEach items="${weapons}" var="weapon">
     		<tr>
     			<td><a href="/Mock_Kiranico/Weapon/${weapon_type}/${weapon.name}">${weapon.name}</a></td>
       			<!--<td><c:out value="${weapon.name}" /></td>  -->
-      			<td style="text-align: center"><c:out value="${weapon.attack}"/></td>
-      			<td style="text-align: center">
+      			<td style="width: 127px; text-align: center"><c:out value="${weapon.attack}"/></td>
+      			<td style="width: 127px; text-align: center">
       				<c:choose>
 	    				<c:when test = "${weapon.element_hidden}"> [${weapon.element1}] </c:when>
     					<c:otherwise>${weapon.element1}</c:otherwise>
     				</c:choose>
       				<!--<c:out value="${weapon.element_hidden} == false" />-->
       			</td>
-      			<td style="text-align: center"><c:out value="${weapon.element1_atk}"/></td>
-      			<td style="text-align: center"><c:out value="${weapon.rarity}"/></td>
+      			<td style="width: 127px; text-align: center"><c:out value="${weapon.element1_atk}"/></td>
+      			<td style="width: 127px; text-align: center"><c:out value="${weapon.rarity}"/></td>
     		</tr>
   		</c:forEach>
 	</table>

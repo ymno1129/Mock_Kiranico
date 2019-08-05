@@ -1,4 +1,4 @@
-package com.kiranico.entities;
+package com.kiranico.misc;
 
 public class WeaponQuery {
 	private String weapon_type;

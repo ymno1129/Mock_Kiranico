@@ -1,0 +1,5 @@
+#don't want to track compiled stuff
+build/
+
+#no settings as well
+.settings/

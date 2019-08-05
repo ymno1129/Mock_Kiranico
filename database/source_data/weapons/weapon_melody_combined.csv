@@ -1,0 +1,76 @@
+notes,base_name_en,duration,extension,name_en,effect1,effect2
+BBC,Wind Pressure Negated,180(240),+90(+120),Wind Pressure Negated,Wind Pressure Negated,Wind Pressure Negation Extended
+BBG,Wind Pressure Negated,180(240),+90(+120),Wind Pressure Negated,Wind Pressure Negated,Wind Pressure Negation Extended
+BBO,All Wind Pressure Negated,180(240),+90(+120),All Wind Pressure Negated,All Wind Pressure Negated,All Wind Pressure Negation Extended
+BBR,Wind Pressure Negated,180(240),+90(+120),Wind Pressure Negated,Wind Pressure Negated,Wind Pressure Negation Extended
+BBYP,All Wind Pressure Negated,180(240),+90(+120),All Wind Pressure Negated,All Wind Pressure Negated,All Wind Pressure Negation Extended
+CBP,Stun Negated,180(210),+120(+180),Stun Negated,Stun Negated,Stun Negation Extended
+CCC,Scoutfly Power Up,180(240),+180(+240),Scoutfly Power Up,Scoutfly Level +1,Scoutfly Level +1 Extended
+CCGP,Earplugs (L),180(210),+120(+150),Earplugs (L),Earplugs (L),Earplugs (L) Extended
+CCGW,Earplugs (S),180(210),+120(+150),Earplugs (S),Earplugs (S),Earplugs (S) Extended
+CCRP,Earplugs (S),180(210),+120(+150),Earplugs (S),Earplugs (S),Earplugs (S) Extended
+CCRW,Earplugs (S),180(210),+120(+150),Earplugs (S),Earplugs (S),Earplugs (S) Extended
+CCY,Tremors Negated,180(210),+180(+210),Tremors Negated,Tremors Negated,Tremor Negation Extended
+COOP,Abnormal Status Atk. Increased,90(120),+60(+90),Abnormal Status Atk. Increased,Abnormal Status Atk. Up (S),Abnormal Status Atk. Up (L)
+CPOO,All Ailments Negated,120(150),+60(+90),All Ailments Negated,All Ailments Negated,Ailment Negation Extended
+CRC,Muck Res,180(240),+180(+240),Muck Res,Muck Res,Muck Res Extended
+CYP,Paralysis Negated,180(210),+120(+180),Paralysis Negated,Paralysis Negated,Paralysis Negation Extended
+CYW,Paralysis Negated,180(210),+120(+180),Paralysis Negated,Paralysis Negated,Paralysis Negation Extended
+GBPB,Health Rec. (M) + Antidote,N/A,N/A,Health Rec. (M) + Antidote,Health Rec. (M) + Antidote,N/A
+GBWB,Health Rec. (S) + Antidote,N/A,N/A,Health Rec. (S) + Antidote,Health Rec. (S) + Antidote,N/A
+GGPC,Health Rec. (L),N/A,N/A,Health Rec. (L),Health Rec. (L),N/A
+GGRP,Recovery Speed (L),120(180),+120(+150),Recovery Speed (L),Recovery Speed (L),Recovery Speed Extended
+GGRW,Recovery Speed (S),120(180),+120(+150),Recovery Speed (S),Recovery Speed (S),Recovery Speed Extended
+GGY,Recovery Speed (S),120(180),+120(+150),Recovery Speed (S),Recovery Speed (S),Recovery Speed Extended
+GOPO,Affinity Up and Health Rec. (S),120(150),+60(+90),Affinity Up and Health Rec. (S),Affinity Up (S) / Health Rec. (S),Affinity Up (L) / Health Rec. (S)
+GWCG,Health Recovery (M),N/A,N/A,Health Recovery (M),Health Recovery (M),N/A
+GYPY,Divine Protection,120(150),+90(+120),Divine Protection,Divine Protection,Divine Protection Extended
+OBPB,Attack and Defense Up (S),120(150),+60(+90),Attack and Defense Up (S),Attack and Defense Up (S),Attack Up (L) / Defense Up (L)
+OOGP,Earplugs (L),180(210),+120(+150),Earplugs (L),Earplugs (L),Earplugs (L) Extended
+ORO,All Melody Effects Extended,N/A,N/A,All Melody Effects Extended,All Melody Effects Extended,N/A
+OYYO,Blight Negated,120(150),+120(+150),Blight Negated,Blight Negated,Blight Negation Extended
+PBBP,Defense Up (L),90(120),+60(+90),Defense Up (L),Defense Up (L),Defense Up (XL)
+PBC,Tool Use Drain Reduced (L),60(90),+60(+90),Tool Use Drain Reduced (L),Tool Use Drain Reduced (L),Tool Use Drain Reduction Extended
+PBOO,Attack and Defense Up (S),120(150),+60(+90),Attack and Defense Up (S),Attack and Defense Up (S),Attack Up (L) / Defense Up (L)
+PCBC,Stamina Use Reduced (L),120(150),+60(+90),Stamina Use Reduced (L),Stamina Use Reduced (L),Stamina Use Reduction Extended
+PGBG,Stamina Use Reduced (L),120(150),+60(+90),Stamina Use Reduced (L),Stamina Use Reduced (L),Stamina Use Reduction Extended
+PGP,Health Rec. (S),N/A,N/A,Health Rec. (S),Health Rec. (S),N/A
+PGYG,Elemental Attack Boost,120(150),+90(+120),Elemental Attack Boost,Elemental Attack Boost (S),Elemental Attack Boost (L)
+POBO,Stamina Use Reduced (L),120(150),+60(+90),Stamina Use Reduced (L),Stamina Use Reduced (L),Stamina Use Reduction Extended
+POOR,Attack Up (L),90(120),+30(+60),Attack Up (L),Attack Up (L),Attack Up (XL)
+POPC,Divine Protection,120(150),+90(+120),Divine Protection,Divine Protection,Divine Protection Extended
+POYO,Elemental Attack Boost,120(150),+90(+120),Elemental Attack Boost,Elemental Attack Boost (S),Elemental Attack Boost (L)
+PP,Self-improvement,180(240),+90(+120),Self-improvement,Movement Speed Up,Attack Up + Deflected Attack Prevention
+PRBP,Attack Up (L),90(120),+30(+60),Attack Up (L),Attack Up (L),Attack Up (XL)
+PRCP,Attack Up (L),90(120),+30(+60),Attack Up (L),Attack Up (L),Attack Up (XL)
+PRGP,Attack Up (L),90(120),+30(+60),Attack Up (L),Attack Up (L),Attack Up (XL)
+PRY,Attack Up (S),120(150),+60(+90),Attack Up (S),Attack Up (S),Attack Up (L)
+PYB,Stamina Use Reduced (L),120(150),+60(+90),Stamina Use Reduced (L),Stamina Use Reduced (L),Stamina Use Reduction Extended
+PYC,Dragon Res Boost (L),120(180),+120(+180),Dragon Res Boost (L),Dragon Res Boost (L),Dragon Res Boost (XL)
+PYOY,Earplugs (S) / Wind Pressure Negated,180(210),+90(+150),Earplugs (S) / Wind Pressure Negated,Earplugs (S) / Wind Pressure Negated,Earplugs (S) / Wind Pressure Negation Extended
+RBRP,Health Boost (L),180(240),+120(+180),Health Boost (L),Health Boost (L),Health Boost Extended
+RBW,Health Boost (S),180(240),+120(+180),Health Boost (S),Health Boost (S),Health Boost Extended
+RORP,Knockbacks Negated,45(60),+25(+40),Knockbacks Negated,Knockbacks Negated,Knockback Negation Extended
+RRC,Envir. Damage Negated,120(180),+120(+180),Envir. Damage Negated,Envir. Damage Negated,Envir. Damage Negation Extended
+RYP,Attack Up (S),120(150),+60(+90),Attack Up (S),Attack Up (S),Attack Up (L)
+WBB,Defense Up (S),120(150),+60(+90),Defense Up (S),Defense Up (S),Defense Up (L)
+WBC,Tool Use Drain Reduced (S),30(60),+30(+60),Tool Use Drain Reduced (S),Tool Use Drain Reduced (S),Tool Use Drain Reduction Extended
+WCB,Stamina Use Reduced (S),90(120),+30(+60),Stamina Use Reduced (S),Stamina Use Reduced (S),Stamina Use Reduction Extended
+WGB,Stamina Use Reduced (S),90(120),+30(+60),Stamina Use Reduced (S),Stamina Use Reduced (S),Stamina Use Reduction Extended
+WGW,Health Rec. (S),N/A,N/A,Health Rec. (S),Health Rec. (S),N/A
+WRR,Attack Up (S),120(150),+60(+90),Attack Up (S),Attack Up (S),Attack Up (L)
+WW,Self-improvement,180(240),+90(+120),Self-improvement,Movement Speed Up,Attack Up + Deflected Attack Prevention
+WYB,Stamina Use Reduced (S),90(120),+30(+60),Stamina Use Reduced (S),Stamina Use Reduced (S),Stamina Use Reduction Extended
+WYC,Dragon Res Boost (S),120(180),+120(+180),Dragon Res Boost (S),Dragon Res Boost (S),Dragon Res Boost (L)
+YBP,Ice Res Boost (L),120(180),+120(+180),Ice Res Boost (L),Ice Res Boost (L),Ice Res Boost (XL)
+YBW,Ice Res Boost (S),120(180),+120(+180),Ice Res Boost (S),Ice Res Boost (S),Ice Res Boost (L)
+YCP,Water Res Boost (L),120(180),+120(+180),Water Res Boost (L),Water Res Boost (L),Water Res Boost (XL)
+YCW,Water Res Boost (S),120(180),+120(+180),Water Res Boost (S),Water Res Boost (S),Water Res Boost (L)
+YCYC,Elemental Attack Boost,120(150),+90(+120),Elemental Attack Boost,Elemental Attack Boost (S),Elemental Attack Boost (L)
+YGP,Thunder Res Boost (L),120(180),+120(+180),Thunder Res Boost (L),Thunder Res Boost (L),Thunder Res Boost (XL)
+YGW,Thunder Res Boost (S),120(180),+120(+180),Thunder Res Boost (S),Thunder Res Boost (S),Thunder Res Boost (L)
+YOP,Blight Res Up,90(120),+120(+150),Blight Res Up,Blight Res Up (S),Blight Res Up (L)
+YPR,Attack Up (S),120(150),+60(+90),Attack Up (S),Attack Up (S),Attack Up (L)
+YRP,Fire Res Boost (L),120(180),+120(+180),Fire Res Boost (L),Fire Res Boost (L),Fire Res Boost (XL)
+YRW,Fire Res Boost (S),120(180),+120(+180),Fire Res Boost (S),Fire Res Boost (S),Fire Res Boost (L)
+YYY,Sonic Waves,N/A,N/A,Sonic Waves,Sonic Waves,N/A

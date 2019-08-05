@@ -8,5 +8,7 @@
 	"getWeaponMaterials":
 		"select * from weapon_craft where base_name = :name",
 	"getWeaponByQuery":
-		"select * from weapon_base where weapon_type=:type and element1=:element and (case when slot_1 > 0 then 1 else 0 end) + (case when slot_2 > 0 then 1 else 0 end) + (case when slot_3 > 0 then 1 else 0 end) > :num_slots"
+		"select * from weapon_base where weapon_type=:type and element1=:element and (case when slot_1 > 0 then 1 else 0 end) + (case when slot_2 > 0 then 1 else 0 end) + (case when slot_3 > 0 then 1 else 0 end) > :num_slots",
+	"getMelodyByNotes":
+		"select * from weapon_melody_combined where notes = :notes"
 }

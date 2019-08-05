@@ -35,7 +35,7 @@
    },
 
    "weapon_craft": {
-      "active": true,
+      "active": false,
       "path": "./source_data/weapons/weapon_craft.csv",
       "columns": {
          "base_name": "varchar(30)",
@@ -68,7 +68,7 @@
    },
 
    "item_base": {
-      "active": true,
+      "active": false,
       "path": "./source_data/items/item_base.csv",
       "columns": {
          "id": "smallint",
@@ -84,5 +84,29 @@
          "icon_color": "varchar(10)"
       },
       "primary": {"id":1}
+   },
+
+   "weapon_melody_notes": {
+      "active": true,
+      "path": "./source_data/weapons/weapon_melody_notes.csv",
+      "columns": {
+         "base_name_en": "varchar(70)",
+         "notes": "varchar(5)"
+      },
+      "primary" : {"notes": 1}
+   },
+
+   "weapon_melody_base": {
+      "active": true,
+      "path": "./source_data/weapons/weapon_melody_base.csv",
+      "columns": {
+         "id": "smallint",
+         "duration": "varchar(20)",
+         "extension": "varchar(20)",
+         "name_en": "varchar(50)",
+         "effect1": "varchar(70)",
+         "effect2": "varchar(70)"
+      },
+      "primary" : {"id": 1}
    }
 }

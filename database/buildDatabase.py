@@ -1,5 +1,6 @@
 
 from json import load as jsonLoad
+from json import dump
 from csv import reader as csvReader
 from os.path import exists as pathExists
 
@@ -39,6 +40,7 @@ def insertionsFromCSV(name, table_info):
             line += "%s)"
             args = []
             for item in row:
+                print (item, len(item))
                 if len(item) == 0:
                     args.append("NULL")
                 elif item.isdigit():
@@ -78,3 +80,46 @@ def build():
         sql += "\n" + insertion_sql
 
     return sql
+
+def buildHHNotesRelations():
+    melody_path = "./source_data/weapons/weapon_melody_combined.csv"
+    weapons_path = "./source_data/weapons/weapon_base.csv"
+    all_melodies = []
+    with open(melody_path, 'r') as input:
+        reader = csvReader(input)
+        for idx, row in enumerate(reader):
+            if idx == 0: continue
+            all_melodies.append(row[0])
+
+    weapon_melody_dict = {}
+    with open(weapons_path, 'r') as input:
+        reader = csvReader(input)
+        for idx, row in enumerate(reader):
+            if idx == 0 or row[2] != 'hunting-horn': continue
+            weapon_name = row[1]
+            weapon_notes = row[-3]
+            #print (weapon_name, weapon_notes, all_melodies[0])
+
+            weapon_melody = {}
+            for c in weapon_notes:
+                weapon_melody[c] = 1
+
+            for melody in all_melodies:
+                feasible = True
+                for c in melody:
+                    if c not in weapon_melody:
+                        feasible = False
+                        break
+                if feasible:
+                    if weapon_name not in weapon_melody_dict:
+                        weapon_melody_dict[weapon_name] = [melody]
+                    else:
+                        weapon_melody_dict[weapon_name].append(melody)
+    with open("weapon_all_melodies.json", 'w') as output:
+        dump(weapon_melody_dict, output, separators=(',\n', ':'))
+
+    idx = 0
+    for weapon in weapon_melody_dict:
+        print (weapon, sorted(weapon_melody_dict[weapon], key=lambda x:len(x)))
+        idx += 1
+        if (idx == 10): break

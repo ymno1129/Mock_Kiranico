@@ -1,5 +1,6 @@
 package com.kiranico.entities;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.kiranico.misc.WeaponQuery;
 
 /**
  * @author ymno1
@@ -359,15 +362,6 @@ public class Weapon {
 		}
 	}
 	
-	public static Comparator<Weapon> getComparatorAttack(String type){
-		return new Comparator<Weapon>(){
-			@Override
-			public int compare(Weapon w1, Weapon w2) {
-				return w1.getAttack() - w2.getAttack();
-			}
-		};
-	}
-	
 	public int getNumSlots() {
 		int s1 = this.slot_1 > 0? 1 : 0;
 		int s2 = this.slot_2 > 0? 1 : 0;
@@ -383,7 +377,50 @@ public class Weapon {
 				this.getNumSlots() >= wq.getNum_slots());
 	}
 	
-	public String elementToDisplay() {
-		return this.getElement_hidden()? "(" + this.getElement1() + ")" : this.getElement1();
+	public HashMap<String, Object> getAttributesMap(){
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		//Construct "slots"
+		int[] slots = {this.slot_1, this.slot_2, this.slot_3};
+		StringBuilder slotString = new StringBuilder();
+		for (int i = 0; i < slots.length; i ++) {
+			if (slots[i] == 0) {
+				slotString.append("-"); 
+			}else {
+				slotString.append(Integer.toString(slots[i]));
+			}
+		}
+		
+		//Construct "element"
+		StringBuilder elementString = new StringBuilder();
+		boolean isHidden = this.element_hidden;
+		String ele1 = this.element1;
+		Integer ele1_atk = this.element1_atk;
+		if (ele1_atk == null) {
+			elementString.append("-");
+		}else {
+			elementString.append(Integer.toString(ele1_atk));
+			elementString.append(" ");
+			elementString.append(ele1.toLowerCase());
+		}
+		if (isHidden) elementString.append("\n(hidden)");
+		
+		StringBuilder weapon_img_path = new StringBuilder();
+		String curr_dir = Paths.get("").toAbsolutePath().toString();
+		String img_filename = this.name + ".png";
+		img_filename = "buster_sword.png";
+		weapon_img_path.append(curr_dir + "\\" + img_filename);
+		
+		map.put("name", this.name);
+		map.put("attack", this.attack);
+		map.put("element", elementString.toString());
+		map.put("affinity", Integer.toString(this.affinity) + "%");
+		map.put("slots", slotString.toString());
+		map.put("rarity", this.rarity);
+		map.put("materials", this.materials);
+		map.put("weapon_type", this.weapon_type);
+		map.put("img_path", weapon_img_path.toString());
+		
+		return map;
 	}
 }

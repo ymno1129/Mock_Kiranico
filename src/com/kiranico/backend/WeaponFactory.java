@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
 
 import com.kiranico.entities.Weapon;
-import com.kiranico.entities.WeaponQuery;
+import com.kiranico.misc.WeaponQuery;
 
 public class WeaponFactory {
 	private final int ALL = 0;
@@ -146,8 +146,6 @@ public class WeaponFactory {
 	}
 	
 	public List<Weapon> getWeaponsByRequirements(WeaponQuery wq){
-		Session s = db.getSession();
-		String query = query_fetcher.fetchQueryByString("getWeaponByQuery");
 		String weapon_type = wq.getWeapon_type();
 		
 		if (!allWeapons.containsKey(weapon_type)) {
@@ -161,18 +159,6 @@ public class WeaponFactory {
 		}
 		current_displayed = filtered;
 		return filtered;
-		
-		/**
-		NativeQuery nq = s.createSQLQuery(query).addEntity(Weapon.class).
-				setParameter("type", wq.getWeapon_type()).
-				setParameter("element", wq.getElement()).
-				setParameter("num_slots", wq.getNum_slots() - 1);
-		//System.out.println(nq);
-		List<Weapon> results = nq.getResultList();
-		//System.out.println("got " + results.size() + " results");
-		current_displayed = results;
-		return results;
-		**/
 	}
 	
 	@SuppressWarnings("unused")

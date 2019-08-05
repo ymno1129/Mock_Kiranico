@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.kiranico.entities.WeaponQuery;
+import com.kiranico.misc.WeaponQuery;
 
 public class QueryFetcher {
 	private static final String query_path = "/com/kiranico/backend/sql_queries.json";

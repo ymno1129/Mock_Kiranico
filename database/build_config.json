@@ -1,0 +1,88 @@
+{
+   "weapon_base":
+   {
+      "active": false,
+      "path": "./source_data/weapons/weapon_base.csv",
+      "columns": {
+         "id": "smallint",
+         "name": "varchar(30)",
+         "weapon_type": "varchar(20)",
+         "previous": "varchar(30)",
+         "category": "varchar(10)",
+         "rarity": "tinyint",
+         "attack": "smallint",
+         "affinity": "smallint",
+         "defense": "smallint",
+         "element_hidden": "bit",
+         "element1": "varchar(10)",
+         "element1_atk": "smallint",
+         "element2": "varchar(10)",
+         "element2_atk": "smallint",
+         "elderseal": "varchar(10)",
+         "slot_1": "tinyint",
+         "slot_2": "tinyint",
+         "slot_3": "tinyint",
+         "kinsect_bonus": "varchar(20)",
+         "phial": "varchar(20)",
+         "phial_power": "varchar(10)",
+         "shelling": "varchar(10)",
+         "shelling_level": "tinyint",
+         "notes": "varchar(5)",
+         "ammo_config": "varchar(30)",
+         "skill": "varchar(30)"
+      },
+      "primary": {"id":1}
+   },
+
+   "weapon_craft": {
+      "active": true,
+      "path": "./source_data/weapons/weapon_craft.csv",
+      "columns": {
+         "base_name": "varchar(30)",
+         "type": "varchar(20)",
+         "item1_name": "varchar(40)",
+         "item1_qty": "tinyint",
+         "item2_name": "varchar(40)",
+         "item2_qty": "tinyint",
+         "item3_name": "varchar(40)",
+         "item3_qty": "tinyint",
+         "item4_name": "varchar(40)",
+         "item4_qty": "tinyint"
+      },
+      "primary": {"base_name":1, "type":1}
+   },
+
+   "weapon_bow_ext": {
+      "active": false,
+      "path": "./source_data/weapons/weapon_bow_ext.csv",
+      "columns": {
+         "base_name": "varchar(30)",
+         "close": "bit",
+         "power": "bit",
+         "paralysis": "bit",
+         "poison": "bit",
+         "sleep": "bit",
+         "blast": "bit"
+      },
+      "primary": {"base_name": 1}
+   },
+
+   "item_base": {
+      "active": true,
+      "path": "./source_data/items/item_base.csv",
+      "columns": {
+         "id": "smallint",
+         "name": "varchar(30)",
+         "category": "varchar(10)",
+         "subcategory": "varchar(20)",
+         "rarity": "tinyint",
+         "buy_price": "int",
+         "sell_price": "int",
+         "carry_limit": "smallint",
+         "point": "smallint",
+         "icon_name": "varchar(20)",
+         "icon_color": "varchar(10)"
+      },
+      "primary": {"id":1}
+   }
+}

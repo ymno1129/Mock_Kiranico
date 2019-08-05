@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+   
+      <property name = "hibernate.dialect">
+         org.hibernate.dialect.MySQLDialect
+      </property>
+      
+      <property name = "hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+      <property name = "hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/MHW_DB</property>
+      <property name = "hibernate.connection.username">root</property>    
+      <property name = "hibernate.connection.password">5555</property>
+      
+      <mapping class = "com.kiranico.entities.Weapon"/>
+      <mapping class = "com.kiranico.entities.Material"/>
+      <mapping class = "com.kiranico.entities.Student"/>
+      
+   </session-factory>
+</hibernate-configuration>

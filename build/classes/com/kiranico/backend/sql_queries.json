@@ -1,0 +1,12 @@
+{
+	"getOneWeapon": "select * from weapon_base where name=:name",
+	"getOneCategory": "select * from weapon_base where weapon_type=:type",
+	"getTopLevelByCategory": 
+		"select t.* from weapon_base as t where not exists (select p.name from weapon_base as p where p.previous = t.name) and t.weapon_type=:type",
+	"getAllMaterials":
+		"select * from item_base",
+	"getWeaponMaterials":
+		"select * from weapon_craft where base_name = :name",
+	"getWeaponByQuery":
+		"select * from weapon_base where weapon_type=:type and element1=:element and (case when slot_1 > 0 then 1 else 0 end) + (case when slot_2 > 0 then 1 else 0 end) + (case when slot_3 > 0 then 1 else 0 end) > :num_slots"
+}

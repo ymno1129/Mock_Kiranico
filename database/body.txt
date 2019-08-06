@@ -1,0 +1,157 @@
+    private String id;
+	private String deviation;
+	private String special;
+	
+	private Integer normal1_clip;
+	private Boolean normal1_rapid;
+	private Integer normal1_recoil;
+	private String normal1_reload;
+	
+	private Integer normal2_clip;
+	private Boolean normal2_rapid;
+	private Integer normal2_recoil;
+	private String normal2_reload;
+
+	private Integer normal3_clip;
+	private Boolean normal3_rapid;
+	private Integer normal3_recoil;
+	private String normal3_reload;
+
+	private Integer pierce1_clip;
+	private Boolean pierce1_rapid;
+	private Integer pierce1_recoil;
+	private String pierce1_reload;
+
+	private Integer pierce2_clip;
+	private Boolean pierce2_rapid;
+	private Integer pierce2_recoil;
+	private String pierce2_reload;
+
+	private Integer pierce3_clip;
+	private Boolean pierce3_rapid;
+	private Integer pierce3_recoil;
+	private String pierce3_reload;
+
+	private Integer spread1_clip;
+	private Boolean spread1_rapid;
+	private Integer spread1_recoil;
+	private String spread1_reload;
+	
+	private Integer spread2_clip;
+	private Boolean spread2_rapid;
+	private Integer spread2_recoil;
+	private String spread2_reload;
+	
+	private Integer spread3_clip;
+	private Boolean spread3_rapid;
+	private Integer spread3_recoil;
+	private String spread3_reload;
+
+	private Integer sticky1_clip;
+	private Integer sticky1_recoil;
+	private String sticky1_reload;
+	
+	private Integer sticky2_clip;
+	private Integer sticky2_recoil;
+	private String sticky2_reload;
+
+	private Integer sticky3_clip;
+	private Integer sticky3_recoil;
+	private String sticky3_reload;
+	
+	private Integer cluster1_clip;
+	private Integer cluster1_recoil;
+	private String cluster1_reload;
+
+	private Integer cluster2_clip;
+	private Integer cluster2_recoil;
+	private String cluster2_reload;
+
+	private Integer cluster3_clip;
+	private Integer cluster3_recoil;
+	private String cluster3_reload;
+
+	private Integer recover1_clip;
+	private Integer recover1_recoil;
+	private String recover1_reload;
+
+	private Integer recover2_clip;
+	private Integer recover2_recoil;
+	private String recover2_reload;
+
+	private Integer poison1_clip;
+	private Integer poison1_recoil;
+	private String poison1_reload;
+
+	private Integer poison2_clip;
+	private Integer poison2_recoil;
+	private String poison2_reload;
+	
+	private Integer paralysis1_clip;
+	private Integer paralysis1_recoil;
+	private String paralysis1_reload;
+
+	private Integer paralysis2_clip;
+	private Integer paralysis2_recoil;
+	private String paralysis2_reload;
+	
+	private Integer sleep1_clip;
+	private Integer sleep1_recoil;
+	private String sleep1_reload;
+	
+	private Integer sleep2_clip;
+	private Integer sleep2_recoil;
+	private String sleep2_reload;
+
+	private Integer exhaust1_clip;
+	private Boolean exhaust1_rapid;
+	private Integer exhaust1_recoil;
+	private String exhaust1_reload;
+	
+	private Integer exhaust2_clip;
+	private Boolean exhaust2_rapid;
+	private Integer exhaust2_recoil;
+	private String exhaust2_reload;
+
+	private Integer flamming_clip;
+	private Boolean flamming_rapid;
+	private Integer flamming_recoil;
+	private String flamming_reload;
+
+	private Integer water_clip;
+	private Boolean water_rapid;
+	private Integer water_recoil;
+	private String water_reload;
+
+	private Integer freeze_clip;
+	private Boolean freeze_rapid;
+	private Integer freeze_recoil;
+	private String freeze_reload;
+
+	private Integer thunder_clip;
+	private Boolean thunder_rapid;
+	private Integer thunder_recoil;
+	private String thunder_reload;
+	
+	private Integer dragon_clip;
+	private Integer dragon_recoil;
+	private String dragon_reload;
+
+	private Integer slicing_clip;
+	private Integer slicing_recoil;
+	private String slicing_reload;
+	
+	private Integer wyvern_clip;
+	private String wyvern_reload;
+	
+	private Integer demon_clip;
+	private Integer demon_recoil;
+	private String demon_reload;
+	
+	private Integer armor_clip;
+	private Integer armor_recoil;
+	private String armor_reload;
+	
+	private Integer tranq_clip;
+	private Integer tranq_recoil;
+	private String tranq_reload;

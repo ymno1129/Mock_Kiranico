@@ -87,7 +87,7 @@
    },
 
    "weapon_melody_notes": {
-      "active": true,
+      "active": false,
       "path": "./source_data/weapons/weapon_melody_notes.csv",
       "columns": {
          "base_name_en": "varchar(70)",
@@ -97,7 +97,7 @@
    },
 
    "weapon_melody_base": {
-      "active": true,
+      "active": false,
       "path": "./source_data/weapons/weapon_melody_base.csv",
       "columns": {
          "id": "smallint",
@@ -108,5 +108,170 @@
          "effect2": "varchar(70)"
       },
       "primary" : {"id": 1}
+   },
+
+   "weapon_ammo": {
+      "active": true,
+      "path": "./source_data/weapons/weapon_ammo.csv",
+      "columns": {
+         "id": "varchar(50)",
+         "deviation": "varchar(10)",
+         "special": "varchar(20)",
+
+         "normal1_clip": "tinyint",
+         "normal1_rapid": "bit",
+         "normal1_recoil": "tinyint",
+         "normal1_reload": "varchar(10)",
+
+         "normal2_clip": "tinyint",
+         "normal2_rapid": "bit",
+         "normal2_recoil": "tinyint",
+         "normal2_reload": "varchar(10)",
+
+         "normal3_clip": "tinyint",
+         "normal3_rapid": "bit",
+         "normal3_recoil": "tinyint",
+         "normal3_reload": "varchar(10)",
+
+         "pierce1_clip": "tinyint",
+         "pierce1_rapid": "bit",
+         "pierce1_recoil": "tinyint",
+         "pierce1_reload": "varchar(10)",
+
+         "pierce2_clip": "tinyint",
+         "pierce2_rapid": "bit",
+         "pierce2_recoil": "tinyint",
+         "pierce2_reload": "varchar(10)",
+
+         "pierce3_clip": "tinyint",
+         "pierce3_rapid": "bit",
+         "pierce3_recoil": "tinyint",
+         "pierce3_reload": "varchar(10)",
+
+         "spread1_clip": "tinyint",
+         "spread1_rapid": "bit",
+         "spread1_recoil": "tinyint",
+         "spread1_reload": "varchar(10)",
+
+         "spread2_clip": "tinyint",
+         "spread2_rapid": "bit",
+         "spread2_recoil": "tinyint",
+         "spread2_reload": "varchar(10)",
+
+         "spread3_clip": "tinyint",
+         "spread3_rapid": "bit",
+         "spread3_recoil": "tinyint",
+         "spread3_reload": "varchar(10)",
+
+         "sticky1_clip": "tinyint",
+         "sticky1_recoil": "tinyint",
+         "sticky1_reload": "varchar(10)",
+
+         "sticky2_clip": "tinyint",
+         "sticky2_recoil": "tinyint",
+         "sticky2_reload": "varchar(10)",
+
+         "sticky3_clip": "tinyint",
+         "sticky3_recoil": "tinyint",
+         "sticky3_reload": "varchar(10)",
+
+         "cluster1_clip": "tinyint",
+         "cluster1_recoil": "tinyint",
+         "cluster1_reload": "varchar(10)",
+
+         "cluster2_clip": "tinyint",
+         "cluster2_recoil": "tinyint",
+         "cluster2_reload": "varchar(10)",
+
+         "cluster3_clip": "tinyint",
+         "cluster3_recoil": "tinyint",
+         "cluster3_reload": "varchar(10)",
+
+         "recover1_clip": "tinyint",
+         "recover1_recoil": "tinyint",
+         "recover1_reload": "varchar(10)",
+
+         "recover2_clip": "tinyint",
+         "recover2_recoil": "tinyint",
+         "recover2_reload": "varchar(10)",
+
+         "poison1_clip": "tinyint",
+         "poison1_recoil": "tinyint",
+         "poison1_reload": "varchar(10)",
+
+         "poison2_clip": "tinyint",
+         "poison2_recoil": "tinyint",
+         "poison2_reload": "varchar(10)",
+
+         "paralysis1_clip": "tinyint",
+         "paralysis1_recoil": "tinyint",
+         "paralysis1_reload": "varchar(10)",
+
+         "paralysis2_clip": "tinyint",
+         "paralysis2_recoil": "tinyint",
+         "paralysis2_reload": "varchar(10)",
+
+         "sleep1_clip": "tinyint",
+         "sleep1_recoil": "tinyint",
+         "sleep1_reload": "varchar(10)",
+
+         "sleep2_clip": "tinyint",
+         "sleep2_recoil": "tinyint",
+         "sleep2_reload": "varchar(10)",
+
+         "exhaust1_clip": "tinyint",
+         "exhaust1_rapid": "bit",
+         "exhaust1_recoil": "tinyint",
+         "exhaust1_reload": "varchar(10)",
+
+         "exhaust2_clip": "tinyint",
+         "exhaust2_rapid": "bit",
+         "exhaust2_recoil": "tinyint",
+         "exhaust2_reload": "varchar(10)",
+
+         "flaming_clip": "tinyint",
+         "flaming_rapid": "bit",
+         "flaming_recoil": "tinyint",
+         "flaming_reload": "varchar(10)",
+
+         "water_clip": "tinyint",
+         "water_rapid": "bit",
+         "water_recoil": "tinyint",
+         "water_reload": "varchar(10)",
+
+         "freeze_clip": "tinyint",
+         "freeze_rapid": "bit",
+         "freeze_recoil": "tinyint",
+         "freeze_reload": "varchar(10)",
+
+         "thunder_clip": "tinyint",
+         "thunder_rapid": "bit",
+         "thunder_recoil": "tinyint",
+         "thunder_reload": "varchar(10)",
+
+         "dragon_clip": "tinyint",
+         "dragon_recoil": "tinyint",
+         "dragon_reload": "varchar(10)",
+
+         "slicing_clip": "tinyint",
+         "slicing_recoil": "tinyint",
+         "slicing_reload": "varchar(10)",
+
+         "wyvern_clip": "tinyint",
+         "wyvern_reload": "varchar(10)",
+
+         "demon_clip": "tinyint",
+         "demon_recoil": "varchar(10)",
+         "demon_reload": "varchar(10)",
+
+         "armor_clip": "tinyint",
+         "armor_recoil": "varchar(10)",
+         "armor_reload": "varchar(10)",
+
+         "tranq_clip": "tinyint",
+         "tranq_recoil": "varchar(10)",
+         "tranq_reload": "varchar(10)"
+      },
+      "primary": {"id": 1}
    }
 }

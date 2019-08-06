@@ -17,6 +17,7 @@
       <mapping class = "com.kiranico.entities.Material"/>
       <mapping class = "com.kiranico.entities.Student"/>
       <mapping class = "com.kiranico.entities.Melody"/>
+      <mapping class = "com.kiranico.entities.AmmoInfo"/>
       
    </session-factory>
 </hibernate-configuration>

@@ -8,7 +8,8 @@
 <title>${name}</title>
 </head>
 <body>
-	<h5><a href="/Mock_Kiranico/index">HOME</a></h5>
+	<p><a href="/Mock_Kiranico/index">HOME</a>&nbsp; &nbsp;&nbsp;<a href="/Mock_Kiranico/Weapon/${weapon_type}">BACK TO ALL WEAPONS</a></p>
+	
 	<img src="/Mock_Kiranico/imgs/weapons/great-sword/buster_sword.png">
 	<h1>${name}</h1>
 	<table style="height: 29px;" width="675">

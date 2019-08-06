@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kiranico.backend.HHNotesFactory;
+import com.kiranico.backend.WeaponAdditionalInfoFactory;
 import com.kiranico.backend.WeaponFactory;
+import com.kiranico.entities.AmmoInfo;
 import com.kiranico.entities.Melody;
 import com.kiranico.entities.Weapon;
 
@@ -46,16 +47,22 @@ public class WeaponsController {
 			List<Weapon> family = wf.getWeaponFamily(target.getName());
 			weapon_attrs.put("family", family);
 			view.addAllObjects(weapon_attrs);
+			
 			System.out.println(target.getWeapon_type());
-			if (target.getWeapon_type().equals("hunting-horn")) {
-				HHNotesFactory hhnf = HHNotesFactory.getHHNFactoryInstance();
+			if (weapon_type.equals("hunting-horn")) {
+				WeaponAdditionalInfoFactory hhnf = WeaponAdditionalInfoFactory.getInstance();
 				List<Melody> melodies = hhnf.getMelodiesByName(target.getName());
-				System.out.println(String.format("-------- %s [%s] --------", target.getName(), target.getNotes()));
-				for (Melody m : melodies) {
-					System.out.println(m + " ");
-				}
+				
+				//System.out.println(String.format("-------- %s [%s] --------", target.getName(), target.getNotes()));
+				//for (Melody m : melodies) {
+				//	System.out.println(m + " ");
+				//}
 				
 				view.addObject("melodies", melodies);
+			}else if (weapon_type.equals("light-bowgun") || weapon_type.equals("heavy-bowgun")) {
+				WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
+				AmmoInfo info = fact.getAmmoInfoByName(weapon_name);
+				
 			}
 		}
 		return view;

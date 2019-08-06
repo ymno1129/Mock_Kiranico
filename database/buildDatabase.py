@@ -97,6 +97,8 @@ def buildHHNotesRelations():
         for idx, row in enumerate(reader):
             if idx == 0 or row[2] != 'hunting-horn': continue
             weapon_name = row[1]
+            weapon_name = weapon_name.replace('\'', '')
+            print (weapon_name)
             weapon_notes = row[-3]
             #print (weapon_name, weapon_notes, all_melodies[0])
 
@@ -120,6 +122,23 @@ def buildHHNotesRelations():
 
     idx = 0
     for weapon in weapon_melody_dict:
-        print (weapon, sorted(weapon_melody_dict[weapon], key=lambda x:len(x)))
+        #print (weapon, sorted(weapon_melody_dict[weapon], key=lambda x:len(x)))
         idx += 1
         if (idx == 10): break
+
+def buildAmmoMap():
+    path = "./source_data/weapons/bowgun_ammo_map.json"
+    output_path = "./source_data/weapons/name_ammo_map.json"
+    reverse_map = {}
+    with open(path, 'r') as input:
+        jobj = jsonLoad(input)
+        for key in jobj:
+            weapons = jobj[key]
+            for w in weapons:
+                w = w.replace('\'', '')
+                reverse_map[w] = key
+
+    with open(output_path, 'w') as output:
+        dump(reverse_map, output, separators=(',\n', ':'))
+
+

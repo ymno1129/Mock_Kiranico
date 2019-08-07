@@ -16,19 +16,51 @@
 		<tbody>
 			<tr>
 				<td style="width: 127px; text-align: center;">${attack}</td>
-				<td style="width: 150px; text-align: center;">${element}</td>
+				<c:if test = "${weapon_type!= 'light-bowgun' and weapon_type != 'heavy-bowgun'}">
+					<td style="width: 150px; text-align: center;">${element}</td>
+				</c:if>
 				<td style="width: 128px; text-align: center;">${affinity}</td>
 				<td style="width: 128px; text-align: center;">${slots}</td>
 				<td style="width: 129px; text-align: center;">TODO</td>
 				<td style="width: 129px; text-align: center;">${rarity}</td>
+				<c:choose>
+					<c:when test="${weapon_type == 'gunlance'}">
+						<td style="width: 150px; text-align: center;">${shelling_info}</td>
+					</c:when>
+					<c:when test="${weapon_type == 'insect-glaive'}">
+						<td style="width: 150px; text-align: center;">${kinsect_bonus}</td>
+					</c:when>
+					<c:when test="${weapon_type == 'charge-blade'}">
+						<td style="width: 150px; text-align: center;">${cb_phial}</td>
+					</c:when>
+					<c:when test="${weapon_type == 'switch-axe'}">
+						<td style="width: 150px; text-align: center;">${phial_info}</td>
+					</c:when>
+				</c:choose>
 			</tr>
 			<tr>
 				<td style="width: 127px; text-align: center;"><strong>Attack</strong></td>
-				<td style="width: 150px; text-align: center;"><strong>Element</strong></td>
+				<c:if test = "${weapon_type!= 'light-bowgun' and weapon_type != 'heavy-bowgun'}">
+					<td style="width: 150px; text-align: center;"><strong>Element</strong></td>
+				</c:if>
 				<td style="width: 128px; text-align: center;"><strong>Affinity</strong></td>
 				<td style="width: 128px; text-align: center;"><strong>Slots</strong></td>
 				<td style="width: 129px; text-align: center;"><strong>Sharpness</strong></td>
 				<td style="width: 166px; text-align: center;"><strong>Rare</strong></td>
+				<c:choose>
+					<c:when test="${weapon_type == 'gunlance'}">
+						<td style="width: 150px; text-align: center;"><strong>Shelling</td>
+					</c:when>
+					<c:when test="${weapon_type == 'insect-glaive'}">
+						<td style="width: 150px; text-align: center;"><strong>Kinsect Bonus</td>
+					</c:when>
+					<c:when test="${weapon_type == 'charge-blade'}">
+						<td style="width: 150px; text-align: center;"><strong>Phial</td>
+					</c:when>
+					<c:when test="${weapon_type == 'switch-axe'}">
+						<td style="width: 150px; text-align: center;"><strong>Phial</td>
+					</c:when>
+				</c:choose>
 			</tr>
 		</tbody>
 	</table>	

@@ -71,14 +71,11 @@ public class WeaponAdditionalInfoFactory {
 		}
 		
 		String weapon_key = (String)jobj.get(weapon_name);
-		System.out.println(String.format("%s = %s", weapon_name, weapon_key));
-		
 		String query_template = query_fetcher.fetchQueryByString("getAmmoInfoByWeaponKey");
 		NativeQuery nq = s.createSQLQuery(query_template).addEntity(AmmoInfo.class).setParameter("weapon_key", weapon_key);
 		List<AmmoInfo> results = nq.getResultList();
 		if (!results.isEmpty()) {
 			AmmoInfo info = results.get(0);
-			System.out.println(info);
 			return info;
 		}
 		

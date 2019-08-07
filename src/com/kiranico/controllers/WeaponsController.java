@@ -49,7 +49,6 @@ public class WeaponsController {
 			weapon_attrs.put("family", family);
 			view.addAllObjects(weapon_attrs);
 			
-			System.out.println(target.getWeapon_type());
 			if (weapon_type.equals("hunting-horn")) {
 				WeaponAdditionalInfoFactory hhnf = WeaponAdditionalInfoFactory.getInstance();
 				List<Melody> melodies = hhnf.getMelodiesByName(target.getName());
@@ -59,6 +58,20 @@ public class WeaponsController {
 				AmmoInfo info = fact.getAmmoInfoByName(weapon_name);
 				List<AmmoInfoSingle> ammo_info_list = info.getAmmoInfoLines();
 				view.addObject("ammos", ammo_info_list);
+			}else if (weapon_type.equals("gunlance")) {
+				view.addObject("shelling_type", target.getShelling());
+				String shelling_info = target.getShelling() + " Lv" + Integer.toString(target.getShelling_level());
+				view.addObject("shelling_info", shelling_info);
+			}else if (weapon_type.equals("insect-glaive")) {
+				view.addObject("kinsect_bonus", target.getKinsect_bonus());
+			}else if (weapon_type.equals("bow")) {
+				
+			}else if (weapon_type.equals("switch-axe")) {
+				String phial_info = target.getPhial();
+				if (target.getPhial_power() != null) phial_info = phial_info + "(" + target.getPhial_power() + ")";
+				view.addObject("phial_info", phial_info);
+			}else if (weapon_type.equals("charge-blade")) {
+				view.addObject("cb_phial", target.getPhial());
 			}
 		}
 		return view;

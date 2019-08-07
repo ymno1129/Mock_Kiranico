@@ -75,6 +75,10 @@
 	    	<c:set var="melodies" scope="request" value="${melodies}"/>
 	    	<jsp:include page="/WEB-INF/weapon_specific_pages/HHNotes.jsp"/>
 	    </c:when>
+	    <c:when test = "${weapon_type == 'light-bowgun' or weapon_type == 'heavy-bowgun'}"> 
+	    	<c:set var="melodies" scope="request" value="${ammos}"/>
+	    	<jsp:include page="/WEB-INF/weapon_specific_pages/BowgunAmmos.jsp"/>
+	    </c:when>
 		<c:otherwise></c:otherwise>
 	</c:choose>
 </body>

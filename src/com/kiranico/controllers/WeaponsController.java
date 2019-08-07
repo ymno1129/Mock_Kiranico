@@ -15,6 +15,7 @@ import com.kiranico.backend.WeaponFactory;
 import com.kiranico.entities.AmmoInfo;
 import com.kiranico.entities.Melody;
 import com.kiranico.entities.Weapon;
+import com.kiranico.misc.AmmoInfoSingle;
 
 @Controller
 @SuppressWarnings("unused")
@@ -52,17 +53,12 @@ public class WeaponsController {
 			if (weapon_type.equals("hunting-horn")) {
 				WeaponAdditionalInfoFactory hhnf = WeaponAdditionalInfoFactory.getInstance();
 				List<Melody> melodies = hhnf.getMelodiesByName(target.getName());
-				
-				//System.out.println(String.format("-------- %s [%s] --------", target.getName(), target.getNotes()));
-				//for (Melody m : melodies) {
-				//	System.out.println(m + " ");
-				//}
-				
 				view.addObject("melodies", melodies);
 			}else if (weapon_type.equals("light-bowgun") || weapon_type.equals("heavy-bowgun")) {
 				WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
 				AmmoInfo info = fact.getAmmoInfoByName(weapon_name);
-				
+				List<AmmoInfoSingle> ammo_info_list = info.getAmmoInfoLines();
+				view.addObject("ammos", ammo_info_list);
 			}
 		}
 		return view;

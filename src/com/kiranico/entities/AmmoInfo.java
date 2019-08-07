@@ -332,7 +332,14 @@ public class AmmoInfo {
 		List<AmmoInfoSingle> info_list = Arrays.asList( norm1, norm2, norm3, pc1, pc2, pc3, sp1, sp2, sp3, stk1, stk2, stk3, 
 				cls1, cls2, cls3, rec1, rec2, poi1, poi2, par1, par2, slp1, slp2, exh1, exh2, flm, wat, ice, thun, drag, 
 				slic, wyv, dem, arm, tranq);
-		return info_list;
+		
+		//Only display useable ammos.
+		List<AmmoInfoSingle> filtered = new ArrayList<AmmoInfoSingle>();
+		for (AmmoInfoSingle info : info_list) {
+			if (info.getCapacity() == 0) continue;
+			filtered.add(info);
+		}
+		return filtered;
 	}
 	
 }

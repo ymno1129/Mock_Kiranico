@@ -1,7 +1,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <h2>Ammos</h2>
-<!-- req.setAttribute("myname",login) -->
-<table style="height: 172px; width: 599px;">
+
+<table style="height: 55px;" width="599px">
 	<tbody>
 		<tr>
 			<td style="width: 206px; text-align: center;">Ammo</td>
@@ -11,46 +11,22 @@
 			<td style="width: 57px; text-align: center;">Rapid</td>
 		</tr>
 		<tr>
-			<td style="width: 206px; text-align: center;">&nbsp;Normal 1</td>
-			<td style="width: 96px; text-align: center;">&nbsp;1</td>
-			<td style="width: 85px; text-align: center;">&nbsp;-1</td>
-			<td style="width: 131px; text-align: center;">Fast</td>
-			<td style="width: 57px; text-align: center;">YES</td>
-		</tr>
-		<tr>
-			<td style="width: 206px; text-align: center;">&nbsp;</td>
-			<td style="width: 96px; text-align: center;">&nbsp;</td>
-			<td style="width: 85px; text-align: center;">&nbsp;</td>
-			<td style="width: 131px; text-align: center;">&nbsp;</td>
-			<td style="width: 57px; text-align: center;">&nbsp;</td>
-		</tr>
-		<tr>
-			<td style="width: 206px; text-align: center;">&nbsp;</td>
-			<td style="width: 96px; text-align: center;">&nbsp;</td>
-			<td style="width: 85px; text-align: center;">&nbsp;</td>
-			<td style="width: 131px; text-align: center;">&nbsp;</td>
-			<td style="width: 57px; text-align: center;">&nbsp;</td>
-		</tr>
-		<tr>
-			<td style="width: 206px; text-align: center;">&nbsp;</td>
-			<td style="width: 96px; text-align: center;">&nbsp;</td>
-			<td style="width: 85px; text-align: center;">&nbsp;</td>
-			<td style="width: 131px; text-align: center;">&nbsp;</td>
-			<td style="width: 57px; text-align: center;">&nbsp;</td>
-		</tr>
-		<tr>
-			<td style="width: 206px; text-align: center;">&nbsp;</td>
-			<td style="width: 96px; text-align: center;">&nbsp;</td>
-			<td style="width: 85px; text-align: center;">&nbsp;</td>
-			<td style="width: 131px; text-align: center;">&nbsp;</td>
-			<td style="width: 57px; text-align: center;">&nbsp;</td>
-		</tr>
-		<tr>
-			<td style="width: 206px; text-align: center;">&nbsp;</td>
-			<td style="width: 96px; text-align: center;">&nbsp;</td>
-			<td style="width: 85px; text-align: center;">&nbsp;</td>
-			<td style="width: 131px; text-align: center;">&nbsp;</td>
-			<td style="width: 57px; text-align: center;">&nbsp;</td>
+			<td style="width: 328px;">&nbsp;
+				<c:forEach items="${ammos}" var="ammo" varStatus="loop">
+    				<tr>
+    					<td style="width: 206px; text-align: center;">${ammo.ammo_type} </td>
+    					<td style="width: 96px; text-align: center;">${ammo.capacity} </td>
+    					<td style="width: 85px; text-align: center;">${ammo.recoil} </td>
+    					<td style="width: 131px; text-align: center;">${ammo.reload} </td>
+    					<td>
+    						<c:choose>
+		    					<c:when test = "${ammo.rapidable}"> YES </c:when>
+    							<c:otherwise></c:otherwise>
+    						</c:choose>
+    					</td>
+    				</tr>
+  				</c:forEach>
+			</td>
 		</tr>
 	</tbody>
 </table>

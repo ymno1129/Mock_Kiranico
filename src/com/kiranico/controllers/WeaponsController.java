@@ -45,16 +45,25 @@ public class WeaponsController {
 		Weapon target = wf.getWeapon(weapon_name);
 		if (target != null) {
 			HashMap<String, Object> weapon_attrs = target.getAttributesMap();
+			
+			//Get the corresponding weapon tree of this particular weapon
 			List<Weapon> family = wf.getWeaponFamily(target.getName());
 			weapon_attrs.put("family", family);
 			view.addAllObjects(weapon_attrs);
 			
+			WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
+			String img_path = fact.getWeaponImagePath(weapon_name);
+			if (img_path == null) {
+				String default_name = weapon_type + "-default.png";
+				img_path = fact.getWeaponImagePath(default_name);
+			}
+			view.addObject("weapon_image_name", img_path);
+			System.out.println(String.format("%s = %s", weapon_name, img_path));
+			
 			if (weapon_type.equals("hunting-horn")) {
-				WeaponAdditionalInfoFactory hhnf = WeaponAdditionalInfoFactory.getInstance();
-				List<Melody> melodies = hhnf.getMelodiesByName(target.getName());
+				List<Melody> melodies = fact.getMelodiesByName(target.getName());
 				view.addObject("melodies", melodies);
 			}else if (weapon_type.equals("light-bowgun") || weapon_type.equals("heavy-bowgun")) {
-				WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
 				AmmoInfo info = fact.getAmmoInfoByName(weapon_name);
 				List<AmmoInfoSingle> ammo_info_list = info.getAmmoInfoLines();
 				view.addObject("ammos", ammo_info_list);

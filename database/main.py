@@ -1,5 +1,5 @@
 import sys
-from buildDatabase import build, buildHHNotesRelations, buildAmmoMap
+from buildDatabase import build, buildHHNotesRelations, buildAmmoMap, buildWeaponImageMap, processWeaponImageMap
 from MHWiki_Worm import MHWiki_Worm
 from urllib.request import urlopen, Request
 import requests
@@ -30,8 +30,10 @@ def process():
             print (annot)
             print (line)
 
+
+
 if __name__ == "__main__":
-    #runDatabase()
-    #buildHHNotesRelations()
-    #buildAmmoMap()
-    process()
+    a = "III"
+    b = "I"
+    c = "Ice"
+    processWeaponImageMap()

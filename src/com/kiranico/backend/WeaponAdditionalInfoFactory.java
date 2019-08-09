@@ -17,12 +17,15 @@ import com.kiranico.entities.Melody;
 public class WeaponAdditionalInfoFactory {
 	private static final String weapon_all_melodies_path = "/com/kiranico/backend/weapon_all_melodies.json";
 	private static final String ammo_map_path = "/com/kiranico/backend/name_ammo_map.json"; 
+	private final String weapon_image_path = "/com/kiranico/backend/weapon_img_map.json";
+	
 	private Database db;
 	private static QueryFetcher query_fetcher;
 	private static WeaponAdditionalInfoFactory factory;
 	
 	private final int MELODY = 0;
 	private final int AMMO = 1;
+	private final int WEAPON_IMAGE = 2;
 	
 	private WeaponAdditionalInfoFactory() {
 		db = Database.getDatabaseInstance();
@@ -39,6 +42,9 @@ public class WeaponAdditionalInfoFactory {
 		case AMMO:
 			path.append(ammo_map_path);
 			break;
+		case WEAPON_IMAGE:
+			path.append(weapon_image_path);
+			break;
 		default:
 			break;
 		}
@@ -53,7 +59,6 @@ public class WeaponAdditionalInfoFactory {
 		}
 		
 	}
-	
 	
 	public static WeaponAdditionalInfoFactory getInstance() {
 		if (factory == null) factory = new WeaponAdditionalInfoFactory();
@@ -106,5 +111,14 @@ public class WeaponAdditionalInfoFactory {
 		}
 		Collections.sort(melodies, Melody.getComparator());
 		return melodies;
+	}
+
+	public String getWeaponImagePath(String weapon_name) {
+		JSONObject jobj = getJsonObject(WEAPON_IMAGE);
+		if (jobj.containsKey(weapon_name)) {
+			return (String)jobj.get(weapon_name);
+		}else {
+			return null;
+		}
 	}
 }

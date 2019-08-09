@@ -141,4 +141,43 @@ def buildAmmoMap():
     with open(output_path, 'w') as output:
         dump(reverse_map, output, separators=(',\n', ':'))
 
+def buildWeaponImageMap():
+    path = "./source_data/weapons/weapon_base.csv"
+    output_path = "./source_data/weapons/weapon_image_map.json"
+    output_weapons = []
+    with open(path, 'r') as input:
+        reader = csvReader(input)
+        for idx, row in enumerate(reader):
+            if idx == 0: continue
+            if idx >= 1253: break
+            weapon_name = row[1]
 
+            output_weapons.append(weapon_name)
+
+    with open(output_path, 'w') as output:
+        output.write("{\n")
+        line = "\"%s\":\"\",\n"
+        for weapon in output_weapons:
+            weapon = weapon.replace("\"", '').replace("\'", '')
+            output.write(line % weapon)
+        output.write("}")
+
+def processWeaponImageMap():
+    input_path = "./source_data/weapons/weapon_image_map.json"
+    output_path = "./source_data/weapons/test_map.json"
+    output_lines = []
+    with open(input_path, 'r') as input:
+        jobj = jsonLoad(input)
+        for weapon_name in jobj:
+            words = weapon_name.split()
+            image_name = []
+            for w in words:
+                if len(w) != w.count('I'): image_name.append(w.lower())
+            image_name = '_'.join(image_name) + ".png"
+            print (weapon_name, image_name)
+            output_lines.append(("\"%s\": \"%s\",\n" % (weapon_name, image_name)))
+    with open(output_path, 'w') as output:
+        output.write("{\n")
+        for line in output_lines:
+            output.write(line)
+        output.write("\n}")

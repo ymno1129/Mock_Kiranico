@@ -12,7 +12,9 @@
 	<hr />
 	<h3><strong>Database</strong></h3>
 	<h2>Quest</h2>
-	<p><a href="localhost:8080/Mock_Kiranico/Quest_List">Quest List</a></p>
+	<p><a href="/Mock_Kiranico/Quest_List">Quest List</a></p>
+	<p><a href="/Mock_Kiranico/Test">Test Home</a></p>
+	<p><a href="/Mock_Kiranico/Test_2">Test2</a><p>
 	<hr />
 	<h2>Weapons</h2>
 	<h5><a href="/Mock_Kiranico/WeaponFinder">Weapon Finder</a></h5>

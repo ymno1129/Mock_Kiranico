@@ -1,5 +1,6 @@
 package com.kiranico.controllers;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -51,6 +52,15 @@ public class WeaponsController {
 			weapon_attrs.put("family", family);
 			view.addAllObjects(weapon_attrs);
 			
+			//Get sharpness image
+			String[] words = weapon_name.split(" ");
+			List<String> lower_words = new ArrayList<String>();
+			for (String w: words) {
+				lower_words.add(w.toLowerCase());
+			}
+			String sharpness_img_name = String.join("_", lower_words) + ".png";
+			view.addObject("sharpness_img_name", sharpness_img_name);
+			
 			WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
 			String img_path = fact.getWeaponImagePath(weapon_name);
 			if (img_path == null) {
@@ -58,7 +68,6 @@ public class WeaponsController {
 				img_path = fact.getWeaponImagePath(default_name);
 			}
 			view.addObject("weapon_image_name", img_path);
-			System.out.println(String.format("%s = %s", weapon_name, img_path));
 			
 			if (weapon_type.equals("hunting-horn")) {
 				List<Melody> melodies = fact.getMelodiesByName(target.getName());

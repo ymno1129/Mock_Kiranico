@@ -392,18 +392,23 @@ public class Weapon {
 		}
 		
 		//Construct "element"
-		StringBuilder elementString = new StringBuilder();
+		String element_img_path = "";
+		//StringBuilder elementString = new StringBuilder();
+		String elementString = "";
 		boolean isHidden = this.element_hidden;
 		String ele1 = this.element1;
 		Integer ele1_atk = this.element1_atk;
 		if (ele1_atk == null) {
-			elementString.append("-");
+			elementString = "-";
+			element_img_path = "none";
 		}else {
-			elementString.append(Integer.toString(ele1_atk));
-			elementString.append(" ");
-			elementString.append(ele1.toLowerCase());
+			if (isHidden) {
+				elementString = String.format("(%s) %s", Integer.toString(ele1_atk), ele1.toLowerCase());
+			}else {
+				elementString = String.format("%s %s", Integer.toString(ele1_atk), ele1.toLowerCase());
+			}
+			element_img_path = ele1.toLowerCase() + ".png";
 		}
-		if (isHidden) elementString.append("\n(hidden)");
 		
 		StringBuilder weapon_img_path = new StringBuilder();
 		String curr_dir = Paths.get("").toAbsolutePath().toString();
@@ -420,6 +425,7 @@ public class Weapon {
 		map.put("materials", this.materials);
 		map.put("weapon_type", this.weapon_type);
 		map.put("img_path", weapon_img_path.toString());
+		map.put("element_img_path", element_img_path);
 		
 		return map;
 	}

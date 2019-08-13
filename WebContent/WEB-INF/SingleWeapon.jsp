@@ -17,11 +17,20 @@
 			<tr>
 				<td style="width: 127px; text-align: center;">${attack}</td>
 				<c:if test = "${weapon_type!= 'light-bowgun' and weapon_type != 'heavy-bowgun'}">
-					<td style="width: 150px; text-align: center;">${element}</td>
+					<td style="width: 150px; text-align: center;">
+						<c:choose>
+							<c:when test="${element_img_path != 'none'}">
+								<p><img src = "/Mock_Kiranico/imgs/general/${element_img_path}"> ${element}</p>
+							</c:when>
+							<c:otherwise>${element}</c:otherwise>
+						</c:choose>
+					</td>
 				</c:if>
 				<td style="width: 128px; text-align: center;">${affinity}</td>
 				<td style="width: 128px; text-align: center;">${slots}</td>
-				<td style="width: 129px; text-align: center;">TODO</td>
+				<td style="width: 129px; text-align: center;">
+					<img src = "/Mock_Kiranico/imgs/sharpness_imgs/${sharpness_img_name}">
+				</td>
 				<td style="width: 129px; text-align: center;">${rarity}</td>
 				<c:choose>
 					<c:when test="${weapon_type == 'gunlance'}">

@@ -3,6 +3,9 @@ from json import load as jsonLoad
 from json import dump
 from csv import reader as csvReader
 from os.path import exists as pathExists
+from PIL import Image, ImageDraw, ImageOps
+
+import os
 
 config_path = "./build_config.json"
 
@@ -181,3 +184,46 @@ def processWeaponImageMap():
         for line in output_lines:
             output.write(line)
         output.write("\n}")
+
+def generateSharpness():
+    data_path = "./source_data/weapons/weapon_sharpness.csv"
+    output_dir = "./source_data/weapons/sharpness_imgs/"
+
+    width = 200
+    height = 15
+
+    with open(data_path, 'r') as input:
+        reader = csvReader(input)
+        for idx, row in enumerate(reader):
+            if idx == 0: continue
+            weapon_name = row[0].replace('\"', '').replace('\'', '')
+            #if weapon_name != "Anguish": continue
+            red, orange, yellow, green, blue, white = [int(e) / 2 for e in row[2:8]]
+            img = Image.new("RGB", (width, height), (0, 0, 0))
+            draw = ImageDraw.Draw(img)
+            tmp = 0
+            if red != 0:
+                draw.rectangle([(tmp, 0), (tmp + red, height)], fill='red')
+                tmp += red
+            if orange != 0:
+                draw.rectangle([(tmp, 0), (tmp + orange, height)], fill='orange')
+                tmp += orange
+            if yellow != 0:
+                draw.rectangle([(tmp, 0), (tmp + yellow, height)], fill='yellow')
+                tmp += yellow
+            if green != 0:
+                draw.rectangle([(tmp, 0), (tmp + green, height)], fill='green')
+                tmp += green
+            if blue != 0:
+                draw.rectangle([(tmp, 0), (tmp + blue, height)], fill='blue')
+                tmp += blue
+            if white != 0:
+                draw.rectangle([(tmp, 0), (tmp + white, height)], fill='white')
+                tmp += white
+
+            img_outlined = ImageOps.expand(img, 2, 0)
+            filename = '_'.join([e.lower() for e in weapon_name.split()]) + ".png"
+            output_path = os.path.join(output_dir, filename)
+            img_outlined.save(output_path)
+
+            #if tmp == 400: print (weapon_name)

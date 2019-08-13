@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.main_panel {
+	text-color: 'green';
+	background: rgba(15, 15, 15, 0.7);
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+.main_panel p{
+	color: green;
+}

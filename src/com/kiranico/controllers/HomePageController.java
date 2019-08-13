@@ -21,4 +21,24 @@ public class HomePageController {
 		
 		return home;
 	}
+	
+	@RequestMapping(value="/Test")
+	public ModelAndView displayTestPage() {
+		ModelAndView test = new ModelAndView("testHome");
+		return test;
+	}
+	
+	@RequestMapping(value="/Test_2")
+	public ModelAndView displayTestPage2() {
+		ModelAndView test = new ModelAndView("testCSS2");
+		return test;
+	}
+	
+	@RequestMapping(value="/Weapons")
+	public ModelAndView displayWeaponsPage() {
+		ModelAndView weapons = new ModelAndView("Weapons");
+		return weapons;
+	}
+	
+	
 }

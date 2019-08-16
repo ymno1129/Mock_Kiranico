@@ -115,6 +115,8 @@ public class WeaponAdditionalInfoFactory {
 
 	public String getWeaponImagePath(String weapon_name) {
 		JSONObject jobj = getJsonObject(WEAPON_IMAGE);
+		weapon_name = weapon_name.replace("\"", "");
+		weapon_name = weapon_name.replace("\'", "");
 		if (jobj.containsKey(weapon_name)) {
 			return (String)jobj.get(weapon_name);
 		}else {

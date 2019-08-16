@@ -26,6 +26,7 @@ public class WeaponsController {
 	private final int TOP = 1;
 	private final int BOTTOM = 2;
 	
+	/**
 	@RequestMapping(value="/Weapon/{weapon_type}", method=RequestMethod.GET)
 	public ModelAndView getWeapons(@PathVariable(value="weapon_type") String weapon_type) {
 		ModelAndView view = new ModelAndView("WeaponPage");
@@ -38,6 +39,20 @@ public class WeaponsController {
 		view.addObject("weapon_type", weapon_type);
 		return view;
 	}
+	
+	@RequestMapping(value="/Weapon/{weapon_type}/sort_by/{attr}", method=RequestMethod.GET)
+	public ModelAndView getWeaponsSorted(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="attr") String attr) {
+		ModelAndView view = new ModelAndView("WeaponPage");
+		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
+		
+		List<Weapon> current_displayed = wf.getCurrent_displayed();
+		System.out.println("Sort by " + attr);
+		Collections.sort(current_displayed, Weapon.getComparator(attr));
+		view.addObject("weapons", current_displayed);
+		view.addObject("weapon_type", weapon_type);
+		wf.setCurrent_displayed(current_displayed);
+		return view;
+	}**/
 	
 	@RequestMapping(value="/Weapon/{weapon_type}/{weapon_name}", method=RequestMethod.GET)
 	public ModelAndView getWeapon(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="weapon_name") String weapon_name) {
@@ -95,13 +110,43 @@ public class WeaponsController {
 		return view;
 	}
 	
+	@RequestMapping(value="/Weapon/{weapon_type}", method=RequestMethod.GET)
+	public ModelAndView getWeapons(@PathVariable(value="weapon_type") String weapon_type) {
+		ModelAndView view = new ModelAndView("testWeaponPage");
+		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
+		WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
+		
+		List<Weapon> selected_weapons = wf.getWeaponsByType(weapon_type, TOP);
+		
+		for (Weapon w: selected_weapons) {
+			String img_path;
+			if (w.getCategory() != null) {
+				img_path = "kt.png";
+			}else {
+				img_path = fact.getWeaponImagePath(w.getName());
+				if (img_path == null) {
+					String default_name = weapon_type + "-default.png";
+					img_path = fact.getWeaponImagePath(default_name);
+				}
+			}
+			
+			w.setImage_path(img_path);
+		}
+		
+		//System.out.println(String.format("Got %d results", selected_weapons.size()));
+		
+		view.addObject("weapons", selected_weapons);
+		view.addObject("weapon_type", weapon_type);
+		return view;
+	}
+	
 	@RequestMapping(value="/Weapon/{weapon_type}/sort_by/{attr}", method=RequestMethod.GET)
 	public ModelAndView getWeaponsSorted(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="attr") String attr) {
-		ModelAndView view = new ModelAndView("WeaponPage");
+		ModelAndView view = new ModelAndView("testWeaponPage");
 		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
 		
 		List<Weapon> current_displayed = wf.getCurrent_displayed();
-		System.out.println("Sort by " + attr);
+		//System.out.println("Sort by " + attr);
 		Collections.sort(current_displayed, Weapon.getComparator(attr));
 		view.addObject("weapons", current_displayed);
 		view.addObject("weapon_type", weapon_type);

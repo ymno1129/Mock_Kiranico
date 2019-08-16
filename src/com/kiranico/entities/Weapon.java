@@ -4,7 +4,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -48,10 +51,47 @@ public class Weapon {
 	private String skill;
 	
 	@Transient
+	private String image_path;
+	@Transient
+	private String sharpness_img;
+	
+	public String getSharpness_img() {
+		String[] words = this.name.split(" ");
+		List<String> lower_words = new ArrayList<String>();
+		for (String w: words) {
+			lower_words.add(w.toLowerCase());
+		}
+		sharpness_img = String.join("_", lower_words) + ".png";
+		return sharpness_img;
+	}
+
+	public void setSharpness_img(String sharpness_img) {
+		this.sharpness_img = sharpness_img;
+	}
+
+	public String getImage_path() {
+		return image_path;
+	}
+
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
+	}
+
+	@Transient
 	private ArrayList<Weapon> next;
 	@Transient
 	private Weapon prev;
+	@Transient
+	private String slot_string;
 	
+	public String getSlot_string() {
+		return slot_string;
+	}
+
+	public void setSlot_string(String slot_string) {
+		this.slot_string = slot_string;
+	}
+
 	public HashMap<String, Integer> getMaterials() {
 		return materials;
 	}
@@ -147,7 +187,7 @@ public class Weapon {
 	}
 
 	public String getElement1() {
-		return element1;
+		return element1.toLowerCase();
 	}
 
 	public void setElement1(String element1) {
@@ -163,7 +203,7 @@ public class Weapon {
 	}
 
 	public String getElement2() {
-		return element2;
+		return element2.toLowerCase();
 	}
 
 	public void setElement2(String element2) {
@@ -355,6 +395,13 @@ public class Weapon {
 				@Override
 				public int compare(Weapon w1, Weapon w2) {
 					return w2.getRarity() - w1.getRarity();
+				}
+			};
+		}else if (type.equals("affinity")){
+			return new Comparator<Weapon>() {
+				@Override
+				public int compare(Weapon w1, Weapon w2) {
+					return w2.getAffinity() - w1.getAffinity();
 				}
 			};
 		}else {

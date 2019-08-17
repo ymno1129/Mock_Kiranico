@@ -54,9 +54,11 @@ public class WeaponsController {
 		return view;
 	}**/
 	
+	/**
 	@RequestMapping(value="/Weapon/{weapon_type}/{weapon_name}", method=RequestMethod.GET)
 	public ModelAndView getWeapon(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="weapon_name") String weapon_name) {
 		ModelAndView view = new ModelAndView("SingleWeapon");
+		
 		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
 		Weapon target = wf.getWeapon(weapon_name);
 		if (target != null) {
@@ -108,7 +110,7 @@ public class WeaponsController {
 			}
 		}
 		return view;
-	}
+	}**/
 	
 	@RequestMapping(value="/Weapon/{weapon_type}", method=RequestMethod.GET)
 	public ModelAndView getWeapons(@PathVariable(value="weapon_type") String weapon_type) {
@@ -154,4 +156,26 @@ public class WeaponsController {
 		return view;
 	}
 
+	@RequestMapping(value="/Weapon/{weapon_type}/{weapon_name}", method=RequestMethod.GET)
+	public ModelAndView getWeapon(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="weapon_name") String weapon_name) {
+		ModelAndView view = new ModelAndView("testSingleWeapon");
+		view.addObject("weapon_name", weapon_name);
+		view.addObject("weapon_type", weapon_type);
+		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
+		Weapon target = wf.getWeapon(weapon_name);
+		if (target != null) {
+			WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
+			String img_path = fact.getWeaponImagePath(weapon_name);
+			if (img_path == null) {
+				String default_name = weapon_type + "-default.png";
+				img_path = fact.getWeaponImagePath(default_name);
+			}
+			view.addObject("weapon_img_path", img_path);
+			
+			HashMap<String, Object> weapon_attrs = target.getNewAttributesMap();
+			view.addAllObjects(weapon_attrs);
+			
+		}
+		return view;
+	}
 }

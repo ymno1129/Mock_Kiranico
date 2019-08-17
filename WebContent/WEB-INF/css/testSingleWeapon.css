@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.main_panel {
+	background: rgba(15, 15, 15, 0.7);
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.weapon_info_panel{
+	vertical-align: top;
+	display:inline-block;
+	margin-right:10px;
+	padding: 40px;
+}
+
+.weapon_info_table {
+	
+	padding: 0px;
+	border-collapse: collapse; 
+}
+
+.weapon_info_table h2{
+	color: #f2f2f2;
+}
+
+.weapon_info_table td{
+	border-top: 2px solid #707070;
+}
+
+.weapon_info_table{
+	border: 2px solid #2c962f;
+}
+
+.left_col {
+	border-right: 2px solid #707070;
+}
+
+.odd_row{
+	background: rgba(50, 50, 50, 0.8);
+	height: 40px;
+	color: #d3d3d3;
+}
+
+.even_row{
+	height: 40px;
+	color: #d3d3d3;
+}
+
+.even_row p{
+	margin: 0px;
+}
+
+.weapon_hierarchy_panel{
+	padding: 40px;
+	display:inline-block;
+}
+
+.weapon_hierarchy_panel p{
+	valign: middle;
+	vertical-align: middle;
+}
+
+.weapon_hierarchy_table{
+	vertical-align: top;
+	border: 2px solid #2c962f;
+}
+
+.weapon_hierarchy_table thead{
+	color: #d3d3d3;
+	background-color: rgba(80, 80, 80, 0.8);
+} 
+
+.basic_info_row{
+	background: rgba(50, 50, 50, 0.8);
+	color: #d3d3d3;
+}
+
+.material_row{
+	
+}
+
+.info_header{
+	margin-bottom: 10px;
+}
+
+.info_header img{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.info_header p{
+	display: inline-block;
+	vertical-align: middle;
+	color: #d3d3d3;
+}
+
+
+
+
+

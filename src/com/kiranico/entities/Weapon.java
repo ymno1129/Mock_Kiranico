@@ -424,6 +424,41 @@ public class Weapon {
 				this.getNumSlots() >= wq.getNum_slots());
 	}
 	
+	public HashMap<String, Object> getNewAttributesMap(){
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("attack",  this.attack);
+
+		//Get sharpness image
+		String[] words = this.name.split(" ");
+		List<String> lower_words = new ArrayList<String>();
+		for (String w: words) {
+			lower_words.add(w.toLowerCase());
+		}
+		String sharpness_img_path = String.join("_", lower_words) + ".png";
+		map.put("sharpness_img_path", sharpness_img_path);
+		
+		String affinity_string = this.affinity + "%";
+		map.put("affinity", affinity_string);
+		
+		String element_img_path;
+		if (this.element1_atk == null) {
+			element_img_path = "none";
+		}else {
+			element_img_path = element1.toLowerCase() + ".png";
+		}
+		map.put("element_img_path", element_img_path);
+		
+		int ele_atk = (this.element1_atk == null)? 0 : this.element1_atk;
+		map.put("element_attack",  ele_atk);
+		
+		map.put("slot_1",  this.slot_1);
+		map.put("slot_2",  this.slot_2);
+		map.put("slot_3",  this.slot_3);
+		
+		return map;
+	}
+	
 	public HashMap<String, Object> getAttributesMap(){
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		

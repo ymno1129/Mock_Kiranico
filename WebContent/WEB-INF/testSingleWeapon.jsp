@@ -77,28 +77,44 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class = "basic_info_row">
-					<td rowspan = "2">FUCK</td>
-					<td>1000</td>
-					<td>1000</td>
-					<td>1000</td>
-					<td>1000</td>
-					<td>1000</td>
-				</tr>
-				<tr class = "material_row">
-					<td colspan="5"> LONG ASS STUFF </td>
-				</tr>
-				<tr class = "basic_info_row">
-					<td rowspan = "2">SHIT</td>
-					<td>1000</td>
-					<td>1000</td>
-					<td>1000</td>
-					<td>1000</td>
-					<td>1000</td>
-				</tr>
-				<tr class = "material_row">
-					<td colspan="5"> LONG ASS STUFF </td>
-				</tr>
+				<c:forEach items="${family}" var="member">
+					<tr class = "basic_info_row">
+						<td rowspan = "2" style="text-align: center" height="60" width="200">
+							<img style="display: inline-block; vertical-align: middle;" 
+							height = "40" src = "/Mock_Kiranico/imgs/weapons/${weapon_type}/${member.image_path}">
+							
+							<a style="display: inline-block; color: #2c962f; vertical-align: middle" 
+							href="/Mock_Kiranico/Weapon/${weapon_type}/${member.name}">${member.name}</a>
+						</td>
+						<td style="text-align: center" height="30">${member.attack }</td>
+						<td style="text-align: center" height="30"><img width = "140" src="/Mock_Kiranico/imgs/sharpness_imgs/${member.sharpness_img}"></td>
+						<td style="text-align: center" height="30">${member.affinity }</td>
+						<td style="text-align: center" height="30">
+							<c:if test = "${not empty member.element_img}">
+								<p style = "margin-top: 0px; margin-bottom: 0px;"><img height = "10" src = "/Mock_Kiranico/imgs/general/${member.element_img}">${member.element1_atk}</p>
+							</c:if>
+							<c:if test = "${empty member.element_img}">
+								<p style = "margin-top: 0px; margin-bottom: 0px;">${member.element1_atk}</p>
+							</c:if>
+						</td>
+						<td style="text-align: center" height="30">
+							<c:if test = "${member.slot_1 != 0}"><img height = "20" src = "/Mock_Kiranico/imgs/general/gem_level_${member.slot_1}.png"></c:if>
+							<c:if test = "${member.slot_2 != 0}"><img height = "20" src = "/Mock_Kiranico/imgs/general/gem_level_${member.slot_2}.png"></c:if>
+							<c:if test = "${member.slot_3 != 0}"><img height = "20" src = "/Mock_Kiranico/imgs/general/gem_level_${member.slot_3}.png"></c:if>
+						</td>		
+					</tr>
+					
+					<tr class = "material_row">
+						<td colspan="5">
+							<p style="color: #d3d3d3">
+								<c:forEach var="entry" items="${member.materials}">
+									<a style="color: #2c962f; font-size: 15px;"href="/Mock_Kiranico/Material/${entry.key}">${entry.key}</a> * ${entry.value};
+								</c:forEach>
+							</p>
+						</td>
+					</tr>
+				</c:forEach>
+				
 			</tbody>
 		</table>
 	</div>

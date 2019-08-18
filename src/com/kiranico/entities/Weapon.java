@@ -54,7 +54,24 @@ public class Weapon {
 	private String image_path;
 	@Transient
 	private String sharpness_img;
+	@Transient
+	private String element_img;
 	
+	public String getElement_img() {
+		
+		String res;
+		if (this.element1 != null) {
+			res = this.element1.toLowerCase() + ".png";
+		}else {
+			res = null;
+		}
+		return res;
+	}
+
+	public void setElement_img(String element_img) {
+		this.element_img = element_img;
+	}
+
 	public String getSharpness_img() {
 		String[] words = this.name.split(" ");
 		List<String> lower_words = new ArrayList<String>();

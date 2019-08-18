@@ -18,7 +18,7 @@ public class HomePageController {
 	@RequestMapping("/index")
 	public ModelAndView displayHomePage() {
 		ModelAndView home = new ModelAndView("HomePage");
-		
+		int a = 1;
 		return home;
 	}
 	

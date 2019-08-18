@@ -175,6 +175,23 @@ public class WeaponsController {
 			HashMap<String, Object> weapon_attrs = target.getNewAttributesMap();
 			view.addAllObjects(weapon_attrs);
 			
+			List<Weapon> family = wf.getWeaponFamily(target.getName());
+			for (Weapon p: family) {
+				//There must be a better way to do this.
+				//Don't want to make the "loadWeaponMaterials" method public since
+				//it might cause unintended results when used in weird places.
+				Weapon w = wf.getWeapon(p.getName());
+				
+				if (p.getImage_path() == null) {
+					String path = fact.getWeaponImagePath(p.getName());
+					if (path == null) {
+						String default_name = weapon_type + "-default.png";
+						path = fact.getWeaponImagePath(default_name);
+					}
+					p.setImage_path(path);
+				}
+			}
+			view.addObject("family", family);
 		}
 		return view;
 	}

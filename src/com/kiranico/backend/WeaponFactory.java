@@ -166,11 +166,6 @@ public class WeaponFactory {
 		if (!allWeapons.containsKey(type)) return;
 		List<Weapon> all_weapons = allWeapons.get(type);
 		
-		/**
-		for (Weapon w: all_weapons) {
-			weaponLibrary.put(w.getName(), w);
-		}**/
-		
 		for (Weapon w: all_weapons) {
 			String this_name = w.getName();
 			String prev_name = "";
@@ -206,11 +201,6 @@ public class WeaponFactory {
 			}
 		}
 		
-		//List<Weapon> tops = topLevelWeapons.get(type);
-		//System.out.println(String.format("%d top weapons", tops.size()));
-		//for (Weapon w: tops) {
-		//	System.out.println(w);
-		//}
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })

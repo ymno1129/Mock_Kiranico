@@ -104,8 +104,14 @@
 	color: #d3d3d3;
 }
 
-.material_row{
-	
+.basic_info_row p{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.material_row p{
+	color: #d3d3d3;
+
 }
 
 .info_header{

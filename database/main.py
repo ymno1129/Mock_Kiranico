@@ -1,5 +1,5 @@
 import sys
-from buildDatabase import build, buildHHNotesRelations, buildAmmoMap, buildWeaponImageMap, processWeaponImageMap, generateSharpness
+from buildDatabase import build, buildHHNotesRelations, buildAmmoMap, buildWeaponImageMap, processWeaponImageMap, generateSharpness, getUniqueNotes
 from MHWiki_Worm import MHWiki_Worm
 from urllib.request import urlopen, Request
 import requests
@@ -33,4 +33,4 @@ def process():
 
 
 if __name__ == "__main__":
-    generateSharpness()
+    getUniqueNotes()

@@ -192,6 +192,31 @@ public class WeaponsController {
 				}
 			}
 			view.addObject("family", family);
+			
+			//To be added
+			if (weapon_type.equals("hunting-horn")) {
+				List<Melody> melodies = fact.getMelodiesByName(target.getName());
+				view.addObject("melodies", melodies);
+				view.addObject("weapon_notes", target.getNotes());
+			}else if (weapon_type.equals("light-bowgun") || weapon_type.equals("heavy-bowgun")) {
+				AmmoInfo info = fact.getAmmoInfoByName(weapon_name);
+				List<AmmoInfoSingle> ammo_info_list = info.getAmmoInfoLines();
+				view.addObject("ammos", ammo_info_list);
+			}else if (weapon_type.equals("gunlance")) {
+				//view.addObject("shelling_type", target.getShelling());
+				String shelling_info = target.getShelling() + " Lv" + Integer.toString(target.getShelling_level());
+				view.addObject("shelling_info", shelling_info);
+			}else if (weapon_type.equals("insect-glaive")) {
+				view.addObject("kinsect_bonus", target.getKinsect_bonus());
+			}else if (weapon_type.equals("bow")) {
+				//TODO
+			}else if (weapon_type.equals("switch-axe")) {
+				String phial_info = target.getPhial();
+				if (target.getPhial_power() != null) phial_info = phial_info + "(" + target.getPhial_power() + ")";
+				view.addObject("phial_info", phial_info);
+			}else if (weapon_type.equals("charge-blade")) {
+				view.addObject("phial_info", target.getPhial());
+			} 
 		}
 		return view;
 	}

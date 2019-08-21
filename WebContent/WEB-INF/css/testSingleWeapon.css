@@ -29,10 +29,14 @@
   color: white;
 }
 
+.topnav a.back_button{
+	float:right;
+}
+
 .main_panel {
-	background: rgba(15, 15, 15, 0.7);
-	margin-left: 50px;
-	margin-right: 50px;
+	background-color: rgba(15, 15, 15, 0.7);
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .weapon_info_panel{
@@ -40,6 +44,7 @@
 	display:inline-block;
 	margin-right:10px;
 	padding: 40px;
+	width: 300px;
 }
 
 .weapon_info_table {
@@ -58,6 +63,7 @@
 
 .weapon_info_table{
 	border: 2px solid #2c962f;
+	overflow: hidden;
 }
 
 .left_col {
@@ -79,9 +85,17 @@
 	margin: 0px;
 }
 
-.weapon_hierarchy_panel{
+.detailed_info_panel{
+	vertical-align: top;
 	padding: 40px;
+	padding-top: 10px;
 	display:inline-block;
+	width: 1000px;
+}
+
+.weapon_hierarchy_panel{
+	padding: 20px;
+	display: block;
 }
 
 .weapon_hierarchy_panel p{
@@ -98,6 +112,11 @@
 	color: #d3d3d3;
 	background-color: rgba(80, 80, 80, 0.8);
 } 
+
+.additional_panel{
+	display: block;	
+	padding: 20px;
+}
 
 .basic_info_row{
 	background: rgba(50, 50, 50, 0.8);

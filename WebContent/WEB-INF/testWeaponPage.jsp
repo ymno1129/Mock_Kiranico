@@ -42,15 +42,26 @@
     		<td id = "cell_img"><img src = "/Mock_Kiranico/imgs/weapons/${weapon_type}/${weapon.image_path}" height="100"></td>   
     		<td style = "text-align: center"><a class = "link" href="/Mock_Kiranico/Weapon/${weapon_type}/${weapon.name}">${weapon.name}</a></td>		
     		<td style="width: 127px; text-align: center"><c:out value="${weapon.attack}"/></td>
-    		<td style="width: 127px; text-align: center"><img width = "100" src = "/Mock_Kiranico/imgs/sharpness_imgs/${weapon.sharpness_img}"></td>
+    		<td style="width: 127px; text-align: center">
+    			<c:if test = "${weapon_type != 'light-bowgun' && weapon_type != 'heavy-bowgun' && weapon_type != 'bow' }">
+    				<img width = "100" src = "/Mock_Kiranico/imgs/sharpness_imgs/${weapon.sharpness_img}">	
+    			</c:if>
+    			<c:if test = "${weapon_type == 'light-bowgun' || weapon_type == 'heavy-bowgun' || weapon_type == 'bow' }">
+    				---
+    			</c:if>
+    		</td>
     		<td style="width: 127px; text-align: center"><c:out value="${weapon.affinity}"/></td>
       		<td style="width: 127px; text-align: center">
       			<c:choose>
+      				<c:when test = "${weapon_type == 'light-bowgun' || weapon_type == 'heavy-bowgun' || weapon_type == 'bow'}"> --- </c:when>
 	    			<c:when test = "${weapon.element_hidden}"> [${weapon.element1}] </c:when>
     				<c:otherwise><img height = "20" src = "/Mock_Kiranico/imgs/general/${weapon.element1}.png"></c:otherwise>
     			</c:choose>
       		</td>
-      		<td style="width: 127px; text-align: center"><c:out value="${weapon.element1_atk}"/></td>
+      		<td style="width: 127px; text-align: center">
+      			<c:if test = "${weapon_type == 'light-bowgun' || weapon_type == 'heavy-bowgun' || weapon_type == 'bow'}"> --- </c:if>
+      			<c:if test = "${weapon_type != 'light-bowgun' && weapon_type != 'heavy-bowgun' && weapon_type != 'bow' }"> ${weapon.element1_atk} </c:if>		
+      		</td>
       		<td style="width: 127px; text-align: center">
 				<c:if test = "${weapon.slot_1 != 0}"><img src = "/Mock_Kiranico/imgs/general/gem_level_${weapon.slot_1}.png"></c:if>
 				<c:if test = "${weapon.slot_2 != 0}"><img src = "/Mock_Kiranico/imgs/general/gem_level_${weapon.slot_2}.png"></c:if>

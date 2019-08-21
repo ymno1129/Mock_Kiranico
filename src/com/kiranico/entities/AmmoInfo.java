@@ -281,6 +281,13 @@ public class AmmoInfo {
 	@Column(name = "demon_reload")
 	private String demon_reload;
 	
+	@Column(name = "armor_clip")
+	private Integer armor_clip;
+	@Column(name = "armor_recoil")
+	private Integer armor_recoil;
+	@Column(name = "armor_reload")
+	private String armor_reload;
+	
 	@Column(name = "tranq_clip")
 	private Integer tranq_clip;
 	@Column(name = "tranq_recoil")
@@ -327,7 +334,7 @@ public class AmmoInfo {
 		AmmoInfoSingle slic = new AmmoInfoSingle("Slicing", slicing_clip, false, slicing_recoil, slicing_reload);
 		AmmoInfoSingle wyv = new AmmoInfoSingle("Wyvern", wyvern_clip, false, -4, wyvern_reload);
 		AmmoInfoSingle dem = new AmmoInfoSingle("Demon", demon_clip, false, demon_recoil, demon_reload);
-		AmmoInfoSingle arm = new AmmoInfoSingle("tranq", tranq_clip, false, tranq_recoil, tranq_reload);
+		AmmoInfoSingle arm = new AmmoInfoSingle("Armor", armor_clip, false, armor_recoil, armor_reload);
 		AmmoInfoSingle tranq = new AmmoInfoSingle("Tranq", tranq_clip, false, tranq_recoil, tranq_reload);
 		List<AmmoInfoSingle> info_list = Arrays.asList( norm1, norm2, norm3, pc1, pc2, pc3, sp1, sp2, sp3, stk1, stk2, stk3, 
 				cls1, cls2, cls3, rec1, rec2, poi1, poi2, par1, par2, slp1, slp2, exh1, exh2, flm, wat, ice, thun, drag, 

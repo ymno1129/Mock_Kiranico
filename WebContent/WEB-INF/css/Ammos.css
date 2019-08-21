@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.info_header{
+	margin-bottom: 10px;
+}
+
+.info_header img{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.info_header p{
+	display: inline-block;
+	vertical-align: middle;
+	color: #d3d3d3;
+}
+
+.ammo_table {
+	border: 2px solid #2c962f;
+	overflow: hidden;
+	width: 600px;
+}
+
+.ammo_table thead{
+	height: 35px;
+	color: #d3d3d3;
+	background-color: rgba(80, 80, 80, 0.8);
+}
+
+.info_col {
+	background: rgba(50, 50, 50, 0.8);
+	height: 50px;
+	color: #d3d3d3;
+}
+
+.ammo_col{
+	color: #d3d3d3;
+	margin-left: 35px;
+}

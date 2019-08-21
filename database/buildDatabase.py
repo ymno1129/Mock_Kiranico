@@ -227,3 +227,15 @@ def generateSharpness():
             img_outlined.save(output_path)
 
             #if tmp == 400: print (weapon_name)
+
+def getUniqueNotes():
+    path = "./source_data/weapons/weapon_melody_notes.csv"
+    all_letters = {}
+    with open(path, 'r') as input:
+        reader = csvReader(input)
+        for idx, row in enumerate(reader):
+            if idx == 0: continue
+            notes = row[1]
+            for c in notes:
+                if c not in all_letters: all_letters[c] = 1
+    print (all_letters.keys())

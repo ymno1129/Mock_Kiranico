@@ -20,12 +20,20 @@ def createTable(name, table_info):
     sql = "create table if not exists `%s` (" + len(columns) * "%s," + "PRIMARY KEY (" + (len(primary) - 1) * "`%s`," + "`%s`));"
     args = [name] + cols + list(primary.keys())
     sql = sql % tuple(args)
+    print (sql)
     return sql
 
 def insertionsFromCSV(name, table_info):
     path = table_info["path"]
     assert pathExists(path), "csv file [%s] missing" % (path)
+
     columns = table_info["columns"]
+
+    if "artificialId" in table_info and table_info["artificialId"]:
+        artificialId = True
+    else:
+        artificialId = False
+
     with open(path, 'r') as input:
         reader = csvReader(input)
 
@@ -35,26 +43,61 @@ def insertionsFromCSV(name, table_info):
         #Lines of insertion
         lines = []
 
+        col_header_map = {}
         for idx, row in enumerate(reader):
             if idx == 0:
+                for i, header in enumerate(row):
+                    col_header_map[header] = i
+                print (col_header_map)
                 continue
             rows += 1
-            line = "(" + (len(row) - 1) * "%s,"
-            line += "%s)"
-            args = []
-            for item in row:
-                print (item, len(item))
-                if len(item) == 0:
-                    args.append("NULL")
-                elif item.isdigit():
-                    args.append(item)
-                elif item == "FALSE" or item == "TRUE":
-                    args.append('1') if item == "TRUE" else args.append('0')
+
+            if "customColumnsMap" in table_info:
+                args = []
+                if artificialId:
+                    line = "(" + (len(table_info["customColumnsMap"])) * "%s,"
+                    line += "%s)"
+                    args.append(idx)
                 else:
-                    args.append("'%s'" % (item.replace('\'', '')))
-            line = line % (tuple(args))
-            lines.append(line)
-            #if idx == 3: break
+                    line = "(" + (len(table_info["customColumnsMap"]) - 1) * "%s,"
+                    line += "%s)"
+
+                for key in table_info["customColumnsMap"]:
+                    col = table_info["customColumnsMap"][key]
+                    col_num = col_header_map[col]
+                    item = row[col_num]
+                    if len(item) == 0:
+                        args.append("NULL")
+                    elif item.isdigit():
+                        args.append(item)
+                    elif item == "FALSE" or item == "TRUE":
+                        args.append('1') if item == "TRUE" else args.append('0')
+                    else:
+                        args.append("'%s'" % (item.replace('\'', '')))
+                line = line % (tuple(args))
+                lines.append(line)
+
+            else:
+                args = []
+                if artificialId:
+                    line = "(" + (len(row)) * "%s,"
+                    line += "%s)"
+                    args.append(idx)
+                else:
+                    line = "(" + (len(row) - 1) * "%s,"
+                    line += "%s)"
+
+                for item in row:
+                    if len(item) == 0:
+                        args.append("NULL")
+                    elif item.isdigit():
+                        args.append(item)
+                    elif item == "FALSE" or item == "TRUE":
+                        args.append('1') if item == "TRUE" else args.append('0')
+                    else:
+                        args.append("'%s'" % (item.replace('\'', '')))
+                line = line % (tuple(args))
+                lines.append(line)
 
         col_names = list(columns.keys())
         insertion_header = "insert into `%s` (" + (len(col_names) - 1) * "`%s`," + "`%s`) values "

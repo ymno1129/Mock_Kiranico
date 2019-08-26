@@ -111,7 +111,7 @@
    },
 
    "weapon_ammo": {
-      "active": true,
+      "active": false,
       "path": "./source_data/weapons/weapon_ammo.csv",
       "columns": {
          "id": "varchar(50)",
@@ -273,5 +273,43 @@
          "tranq_reload": "varchar(10)"
       },
       "primary": {"id": 1}
+   },
+
+   "location_items": {
+      "active": true,
+      "path": "./source_data/locations/location_items.csv",
+      "columns": {
+         "id": "smallint",
+         "base_name": "varchar(30)",
+         "area": "tinyint",
+         "item_name": "varchar(50)"
+      },
+      "primary": {"id": 1},
+      "artificialId": true,
+      "customColumnsMap": {
+         "base_name": "base_name_en",
+         "area": "area",
+         "item_name": "item"
+      }
+   },
+
+   "monster_rewards": {
+      "active": true,
+      "path": "./source_data/monsters/monster_rewards.csv",
+      "columns": {
+         "id": "smallint",
+         "monster_name": "varchar(50)",
+         "condition": "varchar(50)",
+         "rank": "varchar(10)",
+         "item_name": "varchar(50)"
+      },
+      "primary": {"id": 1},
+      "artificialId": true,
+      "customColumnsMap": {
+         "monster_name": "base_name_en",
+         "condition": "condition_en",
+         "rank": "rank",
+         "item_name": "item_en"
+      }
    }
 }

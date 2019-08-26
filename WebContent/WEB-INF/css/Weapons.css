@@ -28,6 +28,10 @@
   color: white;
 }
 
+.topnav a.finder{
+	float: right;
+}
+
 .weapon_table {
 	margin-left: 80px;
 	margin-right: 40px;

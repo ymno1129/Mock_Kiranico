@@ -45,4 +45,25 @@ public class MaterialFactory {
 		return null;
 	}
 	
+	public void getMaterialLocations(String name) {
+		Session s = db.getSession();
+		String monster_query = query_fetcher.fetchQueryByString("getMaterialMonsters");
+		String location_query = query_fetcher.fetchQueryByString("getMaterialLocations");
+		
+		NativeQuery nq_mons = s.createSQLQuery(monster_query).setParameter("name", name);
+		NativeQuery nq_loc = s.createSQLQuery(location_query).setParameter("name", name);
+		List<Object[]> mons = nq_mons.getResultList();
+		System.out.println(String.format("Mons result = %d", mons.size()));
+		System.out.println(mons.get(0).length);
+		Object[] record = mons.get(0);
+		Short id = (Short)record[0];
+		String mn = (String)record[1];
+		String cond = (String)record[2];
+		String rank = (String)record[3];
+		String in = (String)record[4];
+		
+		System.out.println(String.format("%d, %s, %s, %s, %s", id, mn, cond, rank, in));
+		
+		
+	}
 }

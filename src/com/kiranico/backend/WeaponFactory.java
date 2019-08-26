@@ -69,7 +69,7 @@ public class WeaponFactory {
 			constructWeaponHierarchy(type);
 		}	
 		
-		System.out.println("HAS BEEN QUERIED BEFORE");
+		//System.out.println("HAS BEEN QUERIED BEFORE");
 		List<Weapon> empty = new ArrayList<Weapon>();
 		switch (mode) {
 		case ALL:

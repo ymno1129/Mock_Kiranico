@@ -204,7 +204,8 @@ public class Weapon {
 	}
 
 	public String getElement1() {
-		return element1.toLowerCase();
+		
+		return (element1 == null)? "NONE" : element1.toLowerCase();
 	}
 
 	public void setElement1(String element1) {
@@ -220,7 +221,7 @@ public class Weapon {
 	}
 
 	public String getElement2() {
-		return element2.toLowerCase();
+		return (element2 == null)? "NONE" : element2.toLowerCase();
 	}
 
 	public void setElement2(String element2) {
@@ -434,11 +435,40 @@ public class Weapon {
 	}
 	
 	public boolean meetRequirement(WeaponQuery wq) {
-		String comp = String.format("%s, %d, %s == %s?", this.getWeapon_type(), this.getAttack(), this.getElement1(), wq.toString());
-		System.out.println(comp);
-		return (wq.getWeapon_type().equalsIgnoreCase(this.getWeapon_type()) && 
-				(wq.getElement().equalsIgnoreCase(this.getElement1()) || wq.getElement().equalsIgnoreCase(this.getElement2())) &&
-				this.getNumSlots() >= wq.getNum_slots());
+		String comp = String.format("%s, %s, %d, %d == %s?", 
+				this.getWeapon_type(), this.getElement1(), this.getAffinity(), this.getNumSlots(), wq.toString());
+		//System.out.println(comp);
+		boolean element_match = 
+				wq.getElement().equals("dc")? true :
+					(wq.getElement().equalsIgnoreCase(this.getElement1()) || wq.getElement().equalsIgnoreCase(this.getElement2()));
+		
+		boolean basic = wq.getWeapon_type().equalsIgnoreCase(this.getWeapon_type()) && 
+				this.getNumSlots() >= wq.getNum_slots() &&
+				this.getAffinity() >= wq.getAffinity();
+				
+		boolean additional = true;
+		switch (this.getWeapon_type()) {
+		case "switch-axe":
+			additional = this.getPhial().equalsIgnoreCase(wq.getAdditional_info());
+			break;
+		case "charge-blade":
+			additional = this.getPhial().equalsIgnoreCase(wq.getAdditional_info());
+			break;
+		case "insect-glaive":
+			additional = this.getKinsect_bonus().equalsIgnoreCase(wq.getAdditional_info());
+			break;
+		case "gunlance":
+			String[] splitted = wq.getAdditional_info().split("_");
+			if (splitted.length == 2) {
+				String target_type = splitted[0];
+				Integer target_lvl = Integer.parseInt(splitted[1]);
+				additional = (target_type.equalsIgnoreCase(this.getShelling())) && (target_lvl == this.getShelling_level());
+			}
+			break;
+		default:
+			break;
+		}
+		return basic && element_match && additional;
 	}
 	
 	public HashMap<String, Object> getNewAttributesMap(){

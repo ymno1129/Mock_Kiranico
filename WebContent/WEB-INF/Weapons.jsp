@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Mock_Kiranico/css/WeaponsPage.css">
+<link rel="stylesheet" href="/Mock_Kiranico/css/Weapons.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>MHW Weapons</title>
 </head>
@@ -15,6 +15,7 @@
   <a class="active" href="/Mock_Kiranico/Weapons">Weapons</a>
   <a href="/Mock_Kiranico/Armors">Armors</a>
   <a href="/Mock_Kiranico/Monsters">Monsters</a>
+  <a class="finder" href="/Mock_Kiranico/WeaponFinder">Finder</a>
 </div>
 
 <img style="margin-left:50px; margin-top: 20px; margin-bottom: 20px;" src="/Mock_Kiranico/imgs/website/logo.png" width="250">

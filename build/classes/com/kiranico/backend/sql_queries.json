@@ -12,5 +12,9 @@
 	"getMelodyByNotes":
 		"select * from weapon_melody_combined where notes = :notes",
 	"getAmmoInfoByWeaponKey":
-		"select * from weapon_ammo where id = :weapon_key"
+		"select * from weapon_ammo where id = :weapon_key",
+	"getMaterialLocations":
+		"select * from location_items where item_name = :name",
+	"getMaterialMonsters":
+		"select * from monster_rewards where item_name = :name"
 }

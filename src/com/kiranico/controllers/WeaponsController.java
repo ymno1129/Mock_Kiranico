@@ -114,7 +114,7 @@ public class WeaponsController {
 	
 	@RequestMapping(value="/Weapon/{weapon_type}", method=RequestMethod.GET)
 	public ModelAndView getWeapons(@PathVariable(value="weapon_type") String weapon_type) {
-		ModelAndView view = new ModelAndView("testWeaponPage");
+		ModelAndView view = new ModelAndView("WeaponPage");
 		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
 		WeaponAdditionalInfoFactory fact = WeaponAdditionalInfoFactory.getInstance();
 		
@@ -144,7 +144,7 @@ public class WeaponsController {
 	
 	@RequestMapping(value="/Weapon/{weapon_type}/sort_by/{attr}", method=RequestMethod.GET)
 	public ModelAndView getWeaponsSorted(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="attr") String attr) {
-		ModelAndView view = new ModelAndView("testWeaponPage");
+		ModelAndView view = new ModelAndView("WeaponPage");
 		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
 		
 		List<Weapon> current_displayed = wf.getCurrent_displayed();
@@ -158,7 +158,7 @@ public class WeaponsController {
 
 	@RequestMapping(value="/Weapon/{weapon_type}/{weapon_name}", method=RequestMethod.GET)
 	public ModelAndView getWeapon(@PathVariable(value="weapon_type") String weapon_type, @PathVariable(value="weapon_name") String weapon_name) {
-		ModelAndView view = new ModelAndView("testSingleWeapon");
+		ModelAndView view = new ModelAndView("SingleWeapon");
 		view.addObject("weapon_name", weapon_name);
 		view.addObject("weapon_type", weapon_type);
 		WeaponFactory wf = WeaponFactory.getWeaponFactoryInstance();
@@ -218,6 +218,7 @@ public class WeaponsController {
 				view.addObject("phial_info", target.getPhial());
 			} 
 		}
+		int a = -1;
 		return view;
 	}
 }

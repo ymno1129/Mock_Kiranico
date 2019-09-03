@@ -28,12 +28,53 @@
   float: right;
 }
 
-.main{
+.info_header {
+}
+
+.info_header img{
+	display: inline-block;
+	vertical-align:middle;
+}
+.info_header p{
+	display: inline-block;
+	vertical-align:middle;
+	color: #d3d3d3;
+}
+
+.finder_panel{
+	background: rgba(15, 15, 15, 0.7);
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+
+.query_table{
+	color: white;
+}
+
+.weapons_panel {
 	background: rgba(15, 15, 15, 0.7);
 	margin-left: 50px;
 	margin-right: 50px;
 }
 
-.query_table{
-	color: white;
+.weapon_attr td{
+	background: rgba(76, 175, 80, 0.1);
+	color: #b9b9b9;
+}
+
+.link {
+	color: #93ff93;
+}
+
+.sorting {
+	color: #ffffae;
+}
+
+#header_img{
+	background: rgba(15, 15, 15, 0.7);
+}
+
+#cell_img{
+	background: rgba(15, 15, 15, 0.7);
 }

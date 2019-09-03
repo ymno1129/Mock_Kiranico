@@ -87,6 +87,22 @@
   				<div class="mhwi_video_single">
 		  			<h2>
 		  			<img src = "/Mock_Kiranico/imgs/website/mhwi_emblem_no_bg.png" >
+		  			Iceborne Promotion Video 4
+		  			</h2>
+		  			<iframe width="560" height="315" src="https://www.youtube.com/embed/K_3g-3fcSn8" frameborder="0" 
+		  			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  				</div>
+  				<div class="mhwi_video_single">
+		  			<h2>
+		  			<img src = "/Mock_Kiranico/imgs/website/mhwi_emblem_no_bg.png" >
+		  			Developer Diary #2
+		  			</h2>
+		  			<iframe width="560" height="315" src="https://www.youtube.com/embed/WHTzUvCKNi8" frameborder="0" 
+		  			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  				</div>
+  				<div class="mhwi_video_single">
+		  			<h2>
+		  			<img src = "/Mock_Kiranico/imgs/website/mhwi_emblem_no_bg.png" >
 		  			Iceborne Promotion Video 3
 		  			</h2>
 	  				<iframe width="560" height="315" src="https://www.youtube.com/embed/wXGkFXSK50g" frameborder="0" 
@@ -95,7 +111,7 @@
   				<div class="mhwi_video_single">
 	  				<h2>
 		  			<img src = "/Mock_Kiranico/imgs/website/mhwi_emblem_no_bg.png" >
-	  				Developer Diary
+	  				Developer Diary #1
 	  				</h2>
 	  				<iframe width="560" height="315" src="https://www.youtube.com/embed/DtT4BrMMpRM" frameborder="0" 
 	  				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

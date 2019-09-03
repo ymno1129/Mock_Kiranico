@@ -1,5 +1,5 @@
 import sys
-from buildDatabase import build, buildHHNotesRelations, buildAmmoMap, buildWeaponImageMap, processWeaponImageMap, generateSharpness, getUniqueNotes
+from buildDatabase import build, buildHHNotesRelations, buildAmmoMap, buildWeaponImageMap, processWeaponImageMap, generateSharpness, getUniqueNotes, rewriteArmorBase
 from MHWiki_Worm import MHWiki_Worm
 from urllib.request import urlopen, Request
 import requests
@@ -34,3 +34,4 @@ def process():
 
 if __name__ == "__main__":
     runDatabase()
+    #rewriteArmorBase()

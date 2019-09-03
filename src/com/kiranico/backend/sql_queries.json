@@ -16,5 +16,9 @@
 	"getMaterialLocations":
 		"select * from location_items where item_name = :name",
 	"getMaterialMonsters":
-		"select * from monster_rewards where item_name = :name"
+		"select * from monster_rewards where item_name = :name",
+	"getAllArmors":
+		"select * from armor_combined",
+	"getBowgunsByRequirement":
+		"select * from weapon_base where weapon_type=:type and affinity > :affinity and (case when slot_1 > 0 then 1 else 0 end) + (case when slot_2 > 0 then 1 else 0 end) + (case when slot_3 > 0 then 1 else 0 end) > :num_slots"
 }

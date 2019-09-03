@@ -2,7 +2,9 @@ package com.kiranico.entities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -298,6 +300,113 @@ public class AmmoInfo {
 	@Override
 	public String toString() {
 		return "Binding successful";
+	}
+	
+	public boolean meetRequirements(List<Map<String, String>> reqs) {
+		Map<String ,AmmoInfoSingle> ammoInfoObjs = this.getAmmoInfoAsObjects();
+		
+		Map<String, Integer> rec_mapping = new HashMap<String, Integer>();
+		rec_mapping.put("Auto", -1); rec_mapping.put("Low", 1); 
+		rec_mapping.put("Average", 2); rec_mapping.put("High", 3); rec_mapping.put("Very High", 4);
+		
+		Map<String, Integer> rel_mapping = new HashMap<String, Integer>();
+		rel_mapping.put("fast", 1); rel_mapping.put("normal", 2); rel_mapping.put("slow", 3); rel_mapping.put("very slow", 4);
+		
+		boolean result = true;
+		for (Map<String, String> req: reqs) {
+			String ammo = req.get("Ammo");
+			AmmoInfoSingle info = ammoInfoObjs.get(ammo);
+			
+			String targ_clip = req.get("Clip");
+			String targ_rec = req.get("Recoil");
+			String targ_rel = req.get("Reload");
+			
+			Integer clip = info.getCapacity();
+			Integer rec = info.getRecoil();
+			String rel = info.getReload();
+			
+			if (!targ_clip.equals("--")) {
+				System.out.println(String.format("%s, %d", targ_clip, clip));
+				if (clip < Integer.parseInt(targ_clip)) {
+					result = false;
+					break;
+				}
+			}
+			
+			if (!targ_rec.equals("--")) {
+				Integer targ_rec_num = rec_mapping.get(targ_rec);
+				if (rec > targ_rec_num) {
+					result = false;
+					break;
+				} 
+			}
+			
+			if (!targ_rel.equals("--")) {
+				Integer targ_rel_num = rel_mapping.get(targ_rel.toLowerCase());
+				Integer rel_num = rel_mapping.get(rel.toLowerCase());
+				if (rel_num > targ_rel_num) {
+					result = false;
+					break;
+				}
+			}
+			//System.out.println(String.format("%s, %s, %s, %s", ammo, clip, rec, rel));
+		} 
+		System.out.println(result);
+		return result;
+	}
+	
+	public Map<String ,AmmoInfoSingle> getAmmoInfoAsObjects(){
+		Map<String, AmmoInfoSingle> mapping = new HashMap<String, AmmoInfoSingle>();
+		AmmoInfoSingle norm1 = new AmmoInfoSingle("Normal 1", normal1_clip, normal1_rapid, normal1_recoil, normal1_reload);
+		AmmoInfoSingle norm2 = new AmmoInfoSingle("Normal 2", normal2_clip, normal2_rapid, normal2_recoil, normal2_reload);
+		AmmoInfoSingle norm3 = new AmmoInfoSingle("Normal 3", normal3_clip, normal3_rapid, normal3_recoil, normal3_reload);
+		AmmoInfoSingle pc1 = new AmmoInfoSingle("Pierce 1", pierce1_clip, pierce1_rapid, pierce1_recoil, pierce1_reload);
+		AmmoInfoSingle pc2 = new AmmoInfoSingle("Pierce 2", pierce2_clip, pierce2_rapid, pierce2_recoil, pierce2_reload);
+		AmmoInfoSingle pc3 = new AmmoInfoSingle("Pierce 3", pierce3_clip, pierce3_rapid, pierce3_recoil, pierce3_reload);
+		AmmoInfoSingle sp1 = new AmmoInfoSingle("Spread 1", spread1_clip, spread1_rapid, spread1_recoil, spread1_reload);
+		AmmoInfoSingle sp2 = new AmmoInfoSingle("Spread 2", spread2_clip, spread2_rapid, spread2_recoil, spread2_reload);
+		AmmoInfoSingle sp3 = new AmmoInfoSingle("Spread 3", spread3_clip, spread3_rapid, spread3_recoil, spread3_reload);
+		AmmoInfoSingle stk1 = new AmmoInfoSingle("Sticky 1", sticky1_clip, false, sticky1_recoil, sticky1_reload);
+		AmmoInfoSingle stk2 = new AmmoInfoSingle("Sticky 2", sticky2_clip, false, sticky2_recoil, sticky2_reload);
+		AmmoInfoSingle stk3 = new AmmoInfoSingle("Sticky 3", sticky3_clip, false, sticky3_recoil, sticky3_reload);
+		AmmoInfoSingle cls1 = new AmmoInfoSingle("Cluster 1", cluster1_clip, false, cluster1_recoil, cluster1_reload);
+		AmmoInfoSingle cls2 = new AmmoInfoSingle("Cluster 2", cluster2_clip, false, cluster2_recoil, cluster2_reload);
+		AmmoInfoSingle cls3 = new AmmoInfoSingle("Cluster 3", cluster3_clip, false, cluster3_recoil, cluster3_reload);
+		AmmoInfoSingle rec1 = new AmmoInfoSingle("Recover 1", recover1_clip, false, recover1_recoil, recover1_reload);
+		AmmoInfoSingle rec2 = new AmmoInfoSingle("Recover 2", recover2_clip, false, recover2_recoil, recover2_reload);
+		AmmoInfoSingle poi1 = new AmmoInfoSingle("Poison 1", poison1_clip, false, poison1_recoil, poison1_reload);
+		AmmoInfoSingle poi2 = new AmmoInfoSingle("Poison 2", poison2_clip, false, poison2_recoil, poison2_reload);
+		AmmoInfoSingle par1 = new AmmoInfoSingle("Paralysis 1", paralysis1_clip, false, paralysis1_recoil, paralysis1_reload);
+		AmmoInfoSingle par2 = new AmmoInfoSingle("Paralysis 2", paralysis2_clip, false, paralysis2_recoil, paralysis2_reload);
+		AmmoInfoSingle slp1 = new AmmoInfoSingle("Sleep 1", sleep1_clip, false, sleep1_recoil, sleep1_reload);
+		AmmoInfoSingle slp2 = new AmmoInfoSingle("Sleep 2", sleep2_clip, false, sleep2_recoil, sleep2_reload);
+		AmmoInfoSingle exh1 = new AmmoInfoSingle("Exhaust 1", exhaust1_clip, false, exhaust1_recoil, exhaust1_reload);
+		AmmoInfoSingle exh2 = new AmmoInfoSingle("Exhaust 2", exhaust2_clip, false, exhaust2_recoil, exhaust2_reload);
+		AmmoInfoSingle flm = new AmmoInfoSingle("Flame", flaming_clip, flaming_rapid, flaming_recoil, flaming_reload);
+		AmmoInfoSingle wat = new AmmoInfoSingle("Water", water_clip, water_rapid, water_recoil, water_reload);
+		AmmoInfoSingle ice = new AmmoInfoSingle("Freeze", freeze_clip, freeze_rapid, freeze_recoil, freeze_reload);
+		AmmoInfoSingle thun = new AmmoInfoSingle("Thunder", thunder_clip, thunder_rapid, thunder_recoil, thunder_reload);
+		AmmoInfoSingle drag = new AmmoInfoSingle("Dragon", dragon_clip, false, dragon_recoil, dragon_reload);
+		AmmoInfoSingle slic = new AmmoInfoSingle("Slicing", slicing_clip, false, slicing_recoil, slicing_reload);
+		AmmoInfoSingle wyv = new AmmoInfoSingle("Wyvern", wyvern_clip, false, -4, wyvern_reload);
+		AmmoInfoSingle dem = new AmmoInfoSingle("Demon", demon_clip, false, demon_recoil, demon_reload);
+		AmmoInfoSingle arm = new AmmoInfoSingle("Armor", armor_clip, false, armor_recoil, armor_reload);
+		AmmoInfoSingle tranq = new AmmoInfoSingle("Tranq", tranq_clip, false, tranq_recoil, tranq_reload);
+		mapping.put("normal_1", norm1); mapping.put("normal_2", norm2);	mapping.put("normal_3", norm3);
+		mapping.put("pierce_1", pc1); mapping.put("pierce_2", pc2); mapping.put("pierce_3", pc3);
+		mapping.put("spread_1", sp1); mapping.put("spread_2", sp2); mapping.put("spread_3", sp3);
+		mapping.put("sticky_1", stk1); mapping.put("sticky_2", stk2); mapping.put("sticky_3", stk3);
+		mapping.put("cluster_1", cls1); mapping.put("cluster_2", cls2); mapping.put("cluster_3", cls3);
+		mapping.put("recover_1", rec1); mapping.put("recover_2", rec2);
+		mapping.put("poison_1", poi1); mapping.put("poison_2", poi2);
+		mapping.put("paralysis_1", par1); mapping.put("paralysis_2", par2);
+		mapping.put("sleep_1", slp1); mapping.put("sleep_2", slp2);
+		mapping.put("exhaust_1", exh1); mapping.put("exhaust_2", exh2);
+		mapping.put("flame", flm); mapping.put("water", wat); mapping.put("ice", ice); 
+		mapping.put("thunder", thun); mapping.put("dragon", drag);
+		mapping.put("slicing", slic); mapping.put("wyvern", wyv); 
+		mapping.put("demon", dem); mapping.put("armor", arm); mapping.put("tranq", tranq);
+		return mapping;
 	}
 	
 	public List<AmmoInfoSingle> getAmmoInfoLines(){

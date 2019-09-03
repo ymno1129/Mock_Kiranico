@@ -2,6 +2,7 @@
 from json import load as jsonLoad
 from json import dump
 from csv import reader as csvReader
+from csv import writer as csvWriter
 from os.path import exists as pathExists
 from PIL import Image, ImageDraw, ImageOps
 
@@ -45,6 +46,7 @@ def insertionsFromCSV(name, table_info):
 
         col_header_map = {}
         for idx, row in enumerate(reader):
+            print (idx, row)
             if idx == 0:
                 for i, header in enumerate(row):
                     col_header_map[header] = i
@@ -282,3 +284,68 @@ def getUniqueNotes():
             for c in notes:
                 if c not in all_letters: all_letters[c] = 1
     print (all_letters.keys())
+
+def rewriteArmorBase():
+    path = "./source_data/armors/armor_skills_ext.csv"
+    out_path = "./source_data/armors/armor_skills_modified.csv"
+    dict = {}
+    with open(path, 'r') as input:
+        reader = csvReader(input)
+        header = None
+        for idx, row in enumerate(reader):
+            if idx == 0:
+                header = row
+            if idx <= 178:
+                #print (row)
+                continue
+
+            armor_name = row[0]
+            words = armor_name.split()
+            #print (armor_name, "    ", [[ord(l) for l in e] for e in words])
+            name = []
+            for w in words:
+                if len(w) == 1 and ord(w[0]) > 20000: continue
+                name.append(w)
+            name = '_'.join(name)
+
+            info = row[1:]
+
+            if name not in dict:
+                dict[name] = [(1, info)]
+            else:
+                curr = dict[name][-1][0]
+                dict[name].append((curr + 1, info))
+
+        for key in dict:
+            #print (key, dict[key])
+            pass
+
+    out_file = open(out_path, 'w', newline='')
+    writer = csvWriter(out_file)
+    writer.writerow(header)
+    suffix = {1: "alpha", 2: "beta", 3: "gamma"}
+    for key in dict:
+        row = None
+        if len(dict[key]) == 1:
+            name = key
+            info = dict[key][0][1]
+            row = [name] + info
+            writer.writerow(row)
+        else:
+            for info in dict[key]:
+                suff = suffix[info[0]]
+                name = '_'.join([key, suff])
+                row = [name] + info[1]
+                writer.writerow(row)
+
+    print ("done")
+
+
+
+
+
+
+
+
+
+

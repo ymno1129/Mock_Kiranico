@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.kiranico.misc.AdvancedWeaponQuery;
 import com.kiranico.misc.WeaponQuery;
 
 /**
@@ -56,7 +56,17 @@ public class Weapon {
 	private String sharpness_img;
 	@Transient
 	private String element_img;
+	@Transient
+	private AmmoInfo ammo_info;
 	
+	public AmmoInfo getAmmo_info() {
+		return ammo_info;
+	}
+
+	public void setAmmo_info(AmmoInfo ammo_info) {
+		this.ammo_info = ammo_info;
+	}
+
 	public String getElement_img() {
 		
 		String res;
@@ -464,6 +474,45 @@ public class Weapon {
 				Integer target_lvl = Integer.parseInt(splitted[1]);
 				additional = (target_type.equalsIgnoreCase(this.getShelling())) && (target_lvl == this.getShelling_level());
 			}
+			break;
+		default:
+			break;
+		}
+		return basic && element_match && additional;
+	}
+	
+	
+	public boolean meetRequirement(AdvancedWeaponQuery awq) {
+		boolean element_match = 
+				awq.getElement().equals("dc")? true :
+					(awq.getElement().equalsIgnoreCase(this.getElement1()) || awq.getElement().equalsIgnoreCase(this.getElement2()));
+		
+		boolean basic = awq.getWeapon_type().equalsIgnoreCase(this.getWeapon_type()) && 
+				this.getNumSlots() >= awq.getNum_slots() &&
+				this.getAffinity() >= awq.getAffinity();
+				
+		boolean additional = true;
+		switch (this.getWeapon_type()) {
+		case "switch-axe":
+			additional = this.getPhial().equalsIgnoreCase(awq.getAdditional());
+			break;
+		case "charge-blade":
+			additional = this.getPhial().equalsIgnoreCase(awq.getAdditional());
+			break;
+		case "insect-glaive":
+			additional = this.getKinsect_bonus().equalsIgnoreCase(awq.getAdditional());
+			break;
+		case "gunlance":
+			String[] splitted = awq.getAdditional().split("_");
+			if (splitted.length == 2) {
+				String target_type = splitted[0];
+				Integer target_lvl = Integer.parseInt(splitted[1]);
+				additional = (target_type.equalsIgnoreCase(this.getShelling())) && (target_lvl >= this.getShelling_level());
+			}
+			break;
+		case "light-bowgun":
+		case "heavy-bowgun":
+			List<Map<String, String>> bowgun_reqs = awq.getBowgun_reqs();
 			break;
 		default:
 			break;

@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
 
 import com.kiranico.entities.Weapon;
+import com.kiranico.misc.AdvancedWeaponQuery;
 import com.kiranico.misc.WeaponQuery;
 
 public class WeaponFactory {
@@ -145,8 +146,9 @@ public class WeaponFactory {
 		return family;
 	}
 	
-	public List<Weapon> getWeaponsByRequirements(WeaponQuery wq){
-		String weapon_type = wq.getWeapon_type();
+	
+	public List<Weapon> getWeaponsByRequirements(AdvancedWeaponQuery awq){
+		String weapon_type = awq.getWeapon_type();
 		
 		if (!allWeapons.containsKey(weapon_type)) {
 			getWeaponsByType(weapon_type, TOP);
@@ -155,9 +157,15 @@ public class WeaponFactory {
 		List<Weapon> weapons = allWeapons.get(weapon_type);
 		List<Weapon> filtered = new ArrayList<Weapon>();
 		for (Weapon w: weapons) {
-			if (w.meetRequirement(wq) && !w.hasNext()) filtered.add(w);
+			if (w.meetRequirement(awq) && !w.hasNext()) filtered.add(w);
 		}
 		current_displayed = filtered;
+		return filtered;
+	}
+	
+	public List<Weapon> getWeaponsByQuery(AdvancedWeaponQuery awq){
+		List<Weapon> filtered = new ArrayList<Weapon>();
+		
 		return filtered;
 	}
 	

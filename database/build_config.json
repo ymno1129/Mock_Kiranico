@@ -276,7 +276,7 @@
    },
 
    "location_items": {
-      "active": true,
+      "active": false,
       "path": "./source_data/locations/location_items.csv",
       "columns": {
          "id": "smallint",
@@ -294,7 +294,7 @@
    },
 
    "monster_rewards": {
-      "active": true,
+      "active": false,
       "path": "./source_data/monsters/monster_rewards.csv",
       "columns": {
          "id": "smallint",
@@ -310,6 +310,62 @@
          "condition": "condition_en",
          "rank": "rank",
          "item_name": "item_en"
+      }
+   },
+
+   "armor_base": {
+      "active": false,
+      "path": "./source_data/armors/armor_base_modified.csv",
+      "columns": {
+         "name_en": "varchar(50)",
+         "rarity": "smallint",
+         "type": "varchar(20)",
+         "gender": "varchar(10)",
+         "slot_1": "tinyint",
+         "slot_2": "tinyint",
+         "slot_3": "tinyint",
+         "defense_base": "smallint",
+         "defense_max": "smallint",
+         "defense_augment_max": "smallint",
+         "defense_fire": "tinyint",
+         "defense_water": "tinyint",
+         "defense_thunder": "tinyint",
+         "defense_ice": "tinyint",
+         "defense_dragon": "tinyint"
+      },
+      "primary": {"name": 1},
+      "artificialId": false
+   },
+
+   "armor_skill": {
+      "active": false,
+      "path": "./source_data/armors/armor_skills_modified.csv",
+      "columns": {
+         "base_name_en": "varchar(50)",
+         "skill1_name": "varchar(50)",
+         "skill1_pts": "tinyint",
+         "skill2_name": "varchar(50)",
+         "skill2_pts": "tinyint"
+      },
+      "primary": {"base_name_en": 1},
+      "artificialId": false
+   },
+
+   "skill_levels": {
+      "active": true,
+      "path": "./source_data/skills/skill_levels.csv",
+      "columns": {
+         "id": "smallint",
+         "skill_name": "varchar(50)",
+         "level": "tinyint",
+         "description": "varchar(200)"
+      },
+      "primary": {"id": 1},
+      "artificialId": true,
+      "customColumnsMap": {
+         "skill_name": "base_name_en",
+         "level": "level",
+         "description": "description_en"
       }
    }
 }

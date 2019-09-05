@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="armor_combined")
 public class Armor {
 	@Id
-	private String name_en;
+	private String name;
 	private String type;
 	private String gender;
 	private Integer slot_1;
@@ -21,14 +21,6 @@ public class Armor {
 	private Integer defense_water;
 	private Integer defense_thunder;
 	private Integer defense_ice;
-	private String base_name_en;
-	public String getBase_name_en() {
-		return base_name_en;
-	}
-
-	public void setBase_name_en(String base_name_en) {
-		this.base_name_en = base_name_en;
-	}
 	private String skill1_name;
 	private Integer skill1_pts;
 	private String skill2_name;
@@ -36,7 +28,7 @@ public class Armor {
 	
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder(name_en);
+		StringBuilder sb = new StringBuilder(name);
 		if (skill1_name != null) {
 			sb.append(String.format(" %s: %d", skill1_name, skill1_pts));
 		}
@@ -70,11 +62,11 @@ public class Armor {
 	public void setSkill2_name(String skill2_name) {
 		this.skill2_name = skill2_name;
 	}
-	public String getName_en() {
-		return name_en;
+	public String getName() {
+		return name;
 	}
-	public void setName_en(String name_en) {
-		this.name_en = name_en;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getType() {
 		return type;

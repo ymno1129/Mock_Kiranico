@@ -2,31 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46b998d3-78a8-41e1-8688-b6a9cd37cca1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/HomePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WebContent/WEB-INF/HomePage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/WeaponFinder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WebContent/WEB-INF/WeaponFinder.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/css/WeaponFinder.css" beforeDir="false" afterPath="$PROJECT_DIR$/../WebContent/WEB-INF/css/WeaponFinder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/spring-dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebContent/WEB-INF/spring-dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/backend/WeaponFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/backend/WeaponFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/backend/sql_queries.json" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/backend/sql_queries.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/controllers/UtilityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/controllers/UtilityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/com/kiranico/entities/Weapon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MHWorldData" beforeDir="false" afterPath="$PROJECT_DIR$/MHWorldData" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MHWorldData/build.py" beforeDir="false" afterPath="$PROJECT_DIR$/MHWorldData/build.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/buildDatabase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/build_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mhw.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mhw.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source_data/skills/skill_levels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/source_data/skills/skill_levels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/kiranico/backend/WeaponFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/kiranico/backend/WeaponFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/kiranico/backend/sql_queries.json" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/kiranico/backend/sql_queries.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/kiranico/controllers/UtilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/kiranico/controllers/UtilityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/kiranico/entities/AmmoInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/kiranico/entities/AmmoInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/kiranico/entities/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/kiranico/entities/Weapon.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+            <state relative-caret-position="684">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -48,21 +29,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/buildDatabase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="54" column="21" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="54" selection-end-column="21" />
+            <state relative-caret-position="517">
+              <caret line="355" column="64" lean-forward="true" selection-start-line="355" selection-start-column="64" selection-end-line="355" selection-end-column="64" />
               <folding>
                 <element signature="e#1#34#0" expanded="true" />
                 <element signature="e#301#787#0" />
-                <element signature="e#4410#6065#0" />
-                <element signature="e#6091#6557#0" />
-                <element signature="e#6590#7257#0" />
-                <element signature="e#7292#8047#0" />
-                <element signature="e#8078#9806#0" />
-                <element signature="e#9834#10201#0" />
-                <element signature="e#10232#12026#0" />
+                <element signature="e#834#3900#0" />
+                <element signature="e#3919#4404#0" />
+                <element signature="e#4439#6094#0" />
+                <element signature="e#6120#6586#0" />
+                <element signature="e#6619#7286#0" />
+                <element signature="e#7321#8076#0" />
+                <element signature="e#8107#9835#0" />
+                <element signature="e#9863#10230#0" />
               </folding>
             </state>
           </provider>
@@ -71,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build_config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="343" column="28" selection-start-line="343" selection-start-column="28" selection-end-line="343" selection-end-column="28" />
+            <state relative-caret-position="781">
+              <caret line="354" column="21" selection-start-line="354" selection-start-column="21" selection-end-line="354" selection-end-column="21" />
               <folding>
                 <element signature="n#!!block;n#weapon_ammo#0;n#!!top" />
               </folding>
@@ -93,6 +75,7 @@
     <findStrings>
       <find>json</find>
       <find>bazel raider</find>
+      <find>kestodon</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,9 +88,9 @@
         <option value="$PROJECT_DIR$/source_data/imageDownloader.py" />
         <option value="$PROJECT_DIR$/MHWiki_Worm.py" />
         <option value="$PROJECT_DIR$/source_data/weapons/weapon_image_map.json" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/build_config.json" />
         <option value="$PROJECT_DIR$/buildDatabase.py" />
+        <option value="$PROJECT_DIR$/build_config.json" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -235,7 +218,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31832796" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21329047" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978564" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -271,38 +254,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build_config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="343" column="28" selection-start-line="343" selection-start-column="28" selection-end-line="343" selection-end-column="28" />
+        <state relative-caret-position="781">
+          <caret line="354" column="21" selection-start-line="354" selection-start-column="21" selection-end-line="354" selection-end-column="21" />
           <folding>
             <element signature="n#!!block;n#weapon_ammo#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/buildDatabase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        <state relative-caret-position="517">
+          <caret line="355" column="64" lean-forward="true" selection-start-line="355" selection-start-column="64" selection-end-line="355" selection-end-column="64" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#1#34#0" expanded="true" />
+            <element signature="e#301#787#0" />
+            <element signature="e#834#3900#0" />
+            <element signature="e#3919#4404#0" />
+            <element signature="e#4439#6094#0" />
+            <element signature="e#6120#6586#0" />
+            <element signature="e#6619#7286#0" />
+            <element signature="e#7321#8076#0" />
+            <element signature="e#8107#9835#0" />
+            <element signature="e#9863#10230#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/buildDatabase.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="54" column="21" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="54" selection-end-column="21" />
+        <state relative-caret-position="684">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding>
-            <element signature="e#1#34#0" expanded="true" />
-            <element signature="e#301#787#0" />
-            <element signature="e#4410#6065#0" />
-            <element signature="e#6091#6557#0" />
-            <element signature="e#6590#7257#0" />
-            <element signature="e#7292#8047#0" />
-            <element signature="e#8078#9806#0" />
-            <element signature="e#9834#10201#0" />
-            <element signature="e#10232#12026#0" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

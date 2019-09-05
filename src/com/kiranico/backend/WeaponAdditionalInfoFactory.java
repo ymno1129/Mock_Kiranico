@@ -18,6 +18,7 @@ public class WeaponAdditionalInfoFactory {
 	private static final String weapon_all_melodies_path = "/com/kiranico/backend/weapon_all_melodies.json";
 	private static final String ammo_map_path = "/com/kiranico/backend/name_ammo_map.json"; 
 	private final String weapon_image_path = "/com/kiranico/backend/weapon_img_map.json";
+	private final String armorset_image_path = "/com/kiranico/backend/armorset_img.json";
 	
 	private Database db;
 	private static QueryFetcher query_fetcher;
@@ -26,6 +27,7 @@ public class WeaponAdditionalInfoFactory {
 	private final int MELODY = 0;
 	private final int AMMO = 1;
 	private final int WEAPON_IMAGE = 2;
+	private final int ARMORSET_IMAGE = 3;
 	
 	private WeaponAdditionalInfoFactory() {
 		db = Database.getDatabaseInstance();
@@ -44,6 +46,9 @@ public class WeaponAdditionalInfoFactory {
 			break;
 		case WEAPON_IMAGE:
 			path.append(weapon_image_path);
+			break;
+		case ARMORSET_IMAGE:
+			path.append(armorset_image_path);
 			break;
 		default:
 			break;
@@ -119,6 +124,15 @@ public class WeaponAdditionalInfoFactory {
 		weapon_name = weapon_name.replace("\'", "");
 		if (jobj.containsKey(weapon_name)) {
 			return (String)jobj.get(weapon_name);
+		}else {
+			return null;
+		}
+	}
+	
+	public String getArmorsetImageByName(String name) {
+		JSONObject jobj = getJsonObject(ARMORSET_IMAGE);
+		if (jobj.containsKey(name)) {
+			return (String)jobj.get(name);
 		}else {
 			return null;
 		}

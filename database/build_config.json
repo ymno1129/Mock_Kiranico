@@ -352,7 +352,7 @@
    },
 
    "skill_levels": {
-      "active": true,
+      "active": false,
       "path": "./source_data/skills/skill_levels.csv",
       "columns": {
          "id": "smallint",
@@ -366,6 +366,33 @@
          "skill_name": "base_name_en",
          "level": "level",
          "description": "description_en"
+      }
+   },
+
+   "armorsets": {
+      "active": true,
+      "path": "./source_data/armors/armorset_modified.csv",
+      "columns": {
+         "name": "varchar(50)",
+         "monster": "varchar(30)",
+         "head": "varchar(50)",
+         "chest": "varchar(50)",
+         "arm": "varchar(50)",
+         "waist": "varchar(50)",
+         "leg": "varchar(50)",
+         "bonus": "varchar(50)"
+      },
+      "primary": {"name": 1},
+      "artificialId": false,
+      "customColumnsMap": {
+         "name": "name_en",
+         "monster": "monster",
+         "head": "head",
+         "chest": "chest",
+         "arm": "arms",
+         "waist": "waist",
+         "leg": "legs",
+         "bonus": "bonus"
       }
    }
 }

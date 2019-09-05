@@ -19,6 +19,12 @@
 		"select * from monster_rewards where item_name = :name",
 	"getAllArmors":
 		"select * from armor_combined",
+	"getArmorPiece":
+		"select * from armor_combined where name=:name",
+	"getAllArmorsets":
+		"select * from armorsets",
+	"getArmorset":
+		"select * from armorsets where name=:name",
 	"getBowgunsByRequirement":
 		"select * from weapon_base where weapon_type=:type and affinity > :affinity and (case when slot_1 > 0 then 1 else 0 end) + (case when slot_2 > 0 then 1 else 0 end) + (case when slot_3 > 0 then 1 else 0 end) > :num_slots"
 }

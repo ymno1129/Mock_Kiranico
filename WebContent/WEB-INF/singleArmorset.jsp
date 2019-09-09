@@ -29,7 +29,7 @@
 				<th style="text-align: center; width 240" colspan="6"><h2>${armorset_name}</h2></th>
 			</tr>
 			<tr>
-				<td colspan="6"><img src = "/Mock_Kiranico/imgs/armorsets/${set_img_path}"></td>
+				<td colspan="6" style="padding-bottom: 20px"><img src = "/Mock_Kiranico/imgs/armorsets/${set_img_path}"></td>
 			</tr>
 			<tr class="odd_row">
 				<td class="left_col" style="text-align: center; width 60px"><img height="20" src = "/Mock_Kiranico/imgs/general/defense.png"></td>
@@ -63,13 +63,85 @@
 			</tr>
 			<tr class = "odd_row">
 				<td class = "left_col" style="text-align: center; width 60px">Skills</td>
-				<td colspan="5" style="text-align: center; width 180px">
+				<td colspan="5" style="text-align: left; width 180px; padding-top: 15px; padding-bottom: 15px; padding-left: 15px">
 					<c:forEach items="${skill_map}" var="entry">
 						${entry.key} x ${entry.value}<br>
 					</c:forEach> 
 				</td>
 			</tr>
 		</table>
+	</div>
+	<div class="detailed_info_panel">
+		<div class="armor_piece_panel">
+			<div class="info_header">
+				<img src="/Mock_Kiranico/imgs/website/guide.png">
+				<p>${armorset_name}'s armor pieces</p>
+			</div>
+			<table class="armor_piece_table">
+				<thead>
+					<tr>
+						<td width="50px"></td>
+						<td width="200px" style="text-align: center">Name</td>
+						<td width="500px" style="text-align: center">Skills</td>
+						<td width="200px" style="text-align: center">Slots</td>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${pieces}" var="piece">
+	    				<c:set var="piece_obj" scope="request" value="${piece.value}"/>
+						<tr class="piece_row">
+							<td width="50px"><img src="/Mock_Kiranico/imgs/general/${piece.key}.png" height="25px"></td>
+							<td width="200px">${piece_obj.name}</td>
+							<td width="500px">
+								<c:if test="${not empty piece_obj.skill1_name}">
+									${piece_obj.skill1_name} x ${piece_obj.skill1_pts} &nbsp&nbsp
+								</c:if>
+								<c:if test="${not empty piece_obj.skill2_name}">
+									${piece_obj.skill2_name} x ${piece_obj.skill2_pts}
+								</c:if>
+							</td>
+							<td width="200px">
+								<img src="/Mock_Kiranico/imgs/general/gem_level_1.png"> x ${piece_obj.num_level1_slots}&nbsp
+								<img src="/Mock_Kiranico/imgs/general/gem_level_2.png"> x ${piece_obj.num_level2_slots}&nbsp
+								<img src="/Mock_Kiranico/imgs/general/gem_level_3.png"> x ${piece_obj.num_level3_slots}
+							</td>
+						</tr>
+					</c:forEach>
+					<!-- 
+					<tr class="piece_row">
+						<td width="50px"><img src="/Mock_Kiranico/imgs/general/head.png" height="25px"></td>
+						<td width="150px">head_name</td>
+						<td width="500px">head_skill</td>
+						<td width="150px">
+							<img src="/Mock_Kiranico/imgs/general/gem_level_1.png"> x &nbsp
+							<img src="/Mock_Kiranico/imgs/general/gem_level_2.png"> x &nbsp
+							<img src="/Mock_Kiranico/imgs/general/gem_level_3.png"> x 
+						</td>
+					</tr>
+					<tr class="piece_row">
+						<td width="50px"><img src="/Mock_Kiranico/imgs/general/waist.png" height="25px"></td>
+						<td width="150px">chest_name</td>
+						<td width="500px">chest_skill</td>
+					</tr>
+					<tr class="piece_row">
+						<td width="50px"><img src="/Mock_Kiranico/imgs/general/arm.png" height="25px"></td>
+						<td width="150px">arm_name</td>
+						<td width="500px">arm_skill</td>
+					</tr>
+					<tr class="piece_row">
+						<td width="50px"><img src="/Mock_Kiranico/imgs/general/waist.png" height="25px"></td>
+						<td width="150px">waist_name</td>
+						<td width="500px">waist_skill</td>
+					</tr>
+					<tr class="piece_row">
+						<td width="50px"><img src="/Mock_Kiranico/imgs/general/leg.png" height="25px"></td>
+						<td width="150px">leg_name</td>
+						<td width="500px">leg_skill</td>
+					</tr>
+					 -->
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 

@@ -83,6 +83,44 @@
 	border-right: 2px solid #707070;
 }
 
+.info_header{
+	margin-bottom: 10px;
+}
+
+.info_header img{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.info_header p{
+	display: inline-block;
+	vertical-align: middle;
+	color: #d3d3d3;
+}
+
+.detailed_info_panel{
+	vertical-align: top;
+	padding: 40px;
+	padding-top: 10px;
+	display:inline-block;
+	width: 1000px;
+}
+
+.armor_piece_table{
+	color: #d3d3d3;
+}
+
+.piece_row{
+	height: 45px;
+	color: #d3d3d3;
+	background: rgba(50, 50, 50, 0.8);
+	text-align: center;
+}
+
+.armor_piece_table{
+	vertical-align: top;
+	border: 2px solid #2c962f;
+}
 
 
 

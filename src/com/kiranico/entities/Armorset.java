@@ -320,4 +320,14 @@ public class Armorset {
 			};
 		}
 	}
+
+	public Map<String, Armor> getPieces(){
+		Map<String, Armor> pieces = new HashMap<String, Armor>();
+		if (head != null) pieces.put("head", head);
+		if (chest != null) pieces.put("chest", chest);
+		if (arm != null) pieces.put("arm", arm);
+		if (waist != null) pieces.put("waist", waist);
+		if (leg != null) pieces.put("leg", leg);
+		return pieces;
+	}
 }

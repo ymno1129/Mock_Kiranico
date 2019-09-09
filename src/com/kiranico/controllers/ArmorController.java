@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kiranico.backend.ArmorFactory;
 import com.kiranico.backend.WeaponAdditionalInfoFactory;
+import com.kiranico.entities.Armor;
 import com.kiranico.entities.Armorset;
 
 @Controller
@@ -39,13 +40,14 @@ public class ArmorController {
 	public ModelAndView getArmorset(@PathVariable(value="name") String name) {
 		ModelAndView mv = new ModelAndView("singleArmorset");
 		ArmorFactory af = ArmorFactory.getInstance();
-		System.out.println(name);
 		Armorset selected = af.getSingleArmorset(name);
 		if (selected != null) {
 			Map<String, Object> attr_map = selected.getAttributeMap();
 			for (Map.Entry<String, Object> e: attr_map.entrySet()) {
-				System.out.println(e.getKey() + ", " + e.getValue());
+				//System.out.println(e.getKey() + ", " + e.getValue());
 			}
+			Map<String, Armor> pieces = selected.getPieces();
+			mv.addObject("pieces", pieces);
 			mv.addAllObjects(attr_map);
 		}
 		return mv;

@@ -4,7 +4,14 @@ import java.util.Map;
 
 public class Skill {
 	private String name;
-	private Map<Integer, String> levels;
+	private Integer level;
+	private String description;
+	
+	public Skill(String name, Integer lev, String desc) {
+		this.name = name;
+		this.level = lev;
+		this.description = desc;
+	}
 	
 	public String getName() {
 		return name;
@@ -12,10 +19,17 @@ public class Skill {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Map<Integer, String> getLevels() {
-		return levels;
+	
+	public Integer getLevel() {
+		return level;
 	}
-	public void setLevels(Map<Integer, String> levels) {
-		this.levels = levels;
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

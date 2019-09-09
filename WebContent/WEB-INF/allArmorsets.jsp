@@ -33,7 +33,7 @@
 			<td style="width: 127px; text-align: center"><img src = "/Mock_Kiranico/imgs/general/thunder.png" height="15"></td>
 			<td style="width: 127px; text-align: center"><img src = "/Mock_Kiranico/imgs/general/ice.png" height="15"></td>
 			<td style="width: 127px; text-align: center"><img src = "/Mock_Kiranico/imgs/general/dragon.png" height="15"></td>
-			<td style="width: 250px; text-align: center"><img src = "/Mock_Kiranico/imgs/general/slots.png" height="15"></td>
+			<td style="width: 150px; text-align: center"><img src = "/Mock_Kiranico/imgs/general/slots.png" height="15"></td>
 			<td style="width: 250px; text-align: center">Skills</td>
 		</tr>
 	</thead>
@@ -48,8 +48,19 @@
 				<td>${armorset.thunder_res}</td>
 				<td>${armorset.ice_res}</td>
 				<td>${armorset.dragon_res}</td>
-				<td>TODO</td>
-				<td>TODO</td>
+				<td>
+					<p>
+					<img src="/Mock_Kiranico/imgs/general/gem_level_1.png" height="20"> x ${armorset.num_level1_slots}<br>
+					<img src="/Mock_Kiranico/imgs/general/gem_level_2.png" height="20"> x ${armorset.num_level2_slots}<br>
+					<img src="/Mock_Kiranico/imgs/general/gem_level_3.png" height="20"> x ${armorset.num_level3_slots}<br>
+					</p>
+				</td>
+				<td style="text-align: left; padding-left: 10px">
+				
+					<c:forEach items="${armorset.skill_map}" var="entry">
+						${entry.key} x ${entry.value}<br>
+					</c:forEach> 
+				</td>
 			</tr>
 		</c:forEach>
 	</tbody>

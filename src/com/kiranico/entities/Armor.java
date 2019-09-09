@@ -3,6 +3,7 @@ package com.kiranico.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="armor_combined")
@@ -26,6 +27,57 @@ public class Armor {
 	private String skill2_name;
 	private Integer skill2_pts;
 	
+	@Transient 
+	private Skill skill1;
+	@Transient
+	private Skill skill2;
+	@Transient
+	private Integer num_level1_slots;
+	@Transient
+	private Integer num_level2_slots;
+	@Transient
+	private Integer num_level3_slots;
+	
+	public Integer getNum_level1_slots() {
+		int num = 0;
+		num += (slot_1 == 1)? 1 : 0;
+		num += (slot_2 == 1)? 1 : 0;
+		num += (slot_3 == 1)? 1 : 0;
+		return num;
+	}
+	
+	public Integer getNum_level2_slots() {
+		int num = 0;
+		num += (slot_1 == 2)? 1 : 0;
+		num += (slot_2 == 2)? 1 : 0;
+		num += (slot_3 == 2)? 1 : 0;
+		return num;
+	}
+
+	public Integer getNum_level3_slots() {
+		int num = 0;
+		num += (slot_1 == 3)? 1 : 0;
+		num += (slot_2 == 3)? 1 : 0;
+		num += (slot_3 == 3)? 1 : 0;
+		return num;
+	}
+
+	public Skill getSkill1() {
+		return skill1;
+	}
+
+	public void setSkill1(Skill skill1) {
+		this.skill1 = skill1;
+	}
+
+	public Skill getSkill2() {
+		return skill2;
+	}
+
+	public void setSkill2(Skill skill2) {
+		this.skill2 = skill2;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(name);

@@ -1,5 +1,9 @@
 package com.kiranico.entities;
 
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.persistence.Transient;
 
 public class Armorset {
@@ -21,6 +25,73 @@ public class Armorset {
 	
 	@Transient
 	private String img_path;
+	@Transient
+	private Integer num_level1_slots;
+	@Transient
+	private Integer num_level2_slots;
+	@Transient
+	private Integer num_level3_slots;
+	@Transient
+	private String skill_desc;
+	@Transient
+	private Map<String, Integer> skill_map;
+	
+	public Map<String, Integer> getSkill_map(){
+		if (skill_map != null) return skill_map;
+		
+		skill_map = new HashMap<String, Integer>();
+		Armor[] parts = {head, chest, arm, waist, leg};
+		for (Armor part: parts) {
+			if (part == null) continue;
+			if (part.getSkill1() != null) {
+				String name = part.getSkill1().getName();
+				Integer level = part.getSkill1().getLevel();
+				if (skill_map.containsKey(name)) skill_map.put(name, skill_map.get(name) + level);
+				else skill_map.put(name, level);
+			}
+			if (part.getSkill2() != null) {
+				String name = part.getSkill2().getName();
+				Integer level = part.getSkill2().getLevel();
+				if (skill_map.containsKey(name)) skill_map.put(name, skill_map.get(name) + level);
+				else skill_map.put(name, level);
+			}
+		}
+		return skill_map;
+	}
+	
+	public Integer getNum_level1_slots() {
+		int num = 0;
+		if (head != null) num += head.getNum_level1_slots();
+		if (chest != null) num += chest.getNum_level1_slots();
+		if (arm != null) num += arm.getNum_level1_slots();
+		if (waist != null) num += waist.getNum_level1_slots();
+		if (leg != null) num += leg.getNum_level1_slots();
+		return num;
+	}
+
+	public Integer getNum_level2_slots() {
+		int num = 0;
+		if (head != null) num += head.getNum_level2_slots();
+		if (chest != null) num += chest.getNum_level2_slots();
+		if (arm != null) num += arm.getNum_level2_slots();
+		if (waist != null) num += waist.getNum_level2_slots();
+		if (leg != null) num += leg.getNum_level2_slots();
+		return num;
+	}
+
+	public Integer getNum_level3_slots() {
+		int num = 0;
+		if (head != null) num += head.getNum_level3_slots();
+		if (chest != null) num += chest.getNum_level3_slots();
+		if (arm != null) num += arm.getNum_level3_slots();
+		if (waist != null) num += waist.getNum_level3_slots();
+		if (leg != null) num += leg.getNum_level3_slots();
+		return num;
+	}
+
+	public String getSkill_desc() {
+		return getSkillsDescription();
+	}
 	
 	public String getImg_path() {
 		return img_path;
@@ -188,5 +259,65 @@ public class Armorset {
 				name, (head == null)? "null": head.getName(), (chest == null)? "null": chest.getName(), 
 				(arm == null)? "null": arm.getName(), (waist == null)? "null": waist.getName(), (leg == null)? "null": leg.getName());
 		return ret;
+	}
+	
+	public String getSkillsDescription() {
+		Map<String, Integer> skills = new HashMap<String, Integer>();
+		Armor[] parts = {head, chest, arm, waist, leg};
+		for (Armor part: parts) {
+			if (part == null) continue;
+			if (part.getSkill1() != null) {
+				String name = part.getSkill1().getName();
+				Integer level = part.getSkill1().getLevel();
+				if (skills.containsKey(name)) skills.put(name, skills.get(name) + level);
+				else skills.put(name, level);
+			}
+			if (part.getSkill2() != null) {
+				String name = part.getSkill2().getName();
+				Integer level = part.getSkill2().getLevel();
+				if (skills.containsKey(name)) skills.put(name, skills.get(name) + level);
+				else skills.put(name, level);
+			}
+		}
+		
+		StringBuilder ret = new StringBuilder();
+		for (Map.Entry<String, Integer> entry : skills.entrySet()) {
+			ret.append(String.format("%s: %d\n", entry.getKey(), entry.getValue()));
+		}
+		return ret.toString();
+	}
+
+	public Map<String, Object> getAttributeMap(){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("armorset_name", this.getName());
+		map.put("fire_res", this.getFire_res());
+		map.put("water_res", this.getWater_res());
+		map.put("thunder_res", this.getThunder_res());
+		map.put("ice_res", this.getIce_res());
+		map.put("dragon_res", this.getDragon_res());
+		map.put("num_lvl1_slots", this.getNum_level1_slots());
+		map.put("num_lvl2_slots", this.getNum_level2_slots());
+		map.put("num_lvl3_slots", this.getNum_level3_slots());
+		map.put("skill_map", this.getSkill_map());
+		map.put("set_img_path", this.getImg_path());
+		return map;
+	}
+	
+	public static Comparator<Armorset> getComparator(String type){
+		if (type.equals("name")) {
+			return new Comparator<Armorset>(){
+				@Override
+				public int compare(Armorset a1, Armorset a2) {
+					return a1.getName().compareTo(a2.getName());
+				}
+			};
+		}else {
+			return new Comparator<Armorset>() {
+				@Override
+				public int compare(Armorset a1, Armorset a2) {
+					return a1.getDefense().compareTo(a2.getDefense());
+				}
+			};
+		}
 	}
 }

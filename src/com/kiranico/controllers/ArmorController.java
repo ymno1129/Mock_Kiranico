@@ -1,6 +1,7 @@
 package com.kiranico.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,6 @@ public class ArmorController {
 	public ModelAndView getAllArmors() {
 		ModelAndView mv = new ModelAndView("allArmorsets");
 		ArmorFactory af = ArmorFactory.getInstance();
-		//List<Armor> all_armors = af.getAllArmors();
 		List<Armorset> all_armorsets = af.getAllArmorsets();
 		WeaponAdditionalInfoFactory waif = WeaponAdditionalInfoFactory.getInstance();
 		if (!all_armorsets.isEmpty()) {
@@ -28,7 +28,7 @@ public class ArmorController {
 					String path = waif.getArmorsetImageByName(as.getName());
 					as.setImg_path(path);
 				}
-				System.out.println(as.getName() + ", " + as.getImg_path());
+				//System.out.println(as.getSkillsDescription());
 			}
 		}
 		mv.addObject("armorsets", all_armorsets);
@@ -38,6 +38,16 @@ public class ArmorController {
 	@RequestMapping(value="/Armorset/{name}", method=RequestMethod.GET)
 	public ModelAndView getArmorset(@PathVariable(value="name") String name) {
 		ModelAndView mv = new ModelAndView("singleArmorset");
+		ArmorFactory af = ArmorFactory.getInstance();
+		System.out.println(name);
+		Armorset selected = af.getSingleArmorset(name);
+		if (selected != null) {
+			Map<String, Object> attr_map = selected.getAttributeMap();
+			for (Map.Entry<String, Object> e: attr_map.entrySet()) {
+				System.out.println(e.getKey() + ", " + e.getValue());
+			}
+			mv.addAllObjects(attr_map);
+		}
 		return mv;
 	}
 }

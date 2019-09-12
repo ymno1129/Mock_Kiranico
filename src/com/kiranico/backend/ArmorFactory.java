@@ -23,6 +23,7 @@ public class ArmorFactory {
 	private Map<String, Armor> armor_map;
 	private Map<String, Armorset> armorset_map;
 	private Map<String, Map<Integer, String>> skill_dict;
+	private Map<String, String> armor_category_map;
 	
 	private ArmorFactory() {
 		db = Database.getDatabaseInstance();
@@ -31,6 +32,7 @@ public class ArmorFactory {
 		armor_map = new HashMap<String, Armor>();
 		armorset_map = new HashMap<String, Armorset>();
 		skill_dict = new HashMap<String, Map<Integer, String>>();
+		armor_category_map = new HashMap<String, String>();
 	}
 	
 	public static ArmorFactory getInstance() {
@@ -192,4 +194,12 @@ public class ArmorFactory {
 	public Armorset getSingleArmorset(String name) {
 		return (armorset_map.containsKey(name))? armorset_map.get(name) : null;
 	}
+	
+	public List<String> getAllSkills(){
+		if (skill_dict.isEmpty()) return null;
+		List<String> all_skills = new ArrayList<String>(skill_dict.keySet());
+		Collections.sort(all_skills);
+		return all_skills;
+	}
+	
 }

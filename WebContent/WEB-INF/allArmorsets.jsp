@@ -15,8 +15,8 @@
   <a href="/Mock_Kiranico/index">Home</a>
   <a href="/Mock_Kiranico/Weapons">Weapons</a>
   <a class="active" href="/Mock_Kiranico/Armors">Armors</a>
-  <a href="/Mock_Kiranico/Monsters">Monsters</a>
-  <a class="finder" href="/Mock_Kiranico/WeaponFinder">Finder</a>
+  <a href="/Mock_Kiranico/Monsters">Monsters</a>d 
+  <a class="finder" href="/Mock_Kiranico/ArmorFinder">Finder</a>
 </div>
 
 <img style="margin-left:50px; margin-top: 20px; margin-bottom: 20px;" src="/Mock_Kiranico/imgs/website/logo.png" width="250">

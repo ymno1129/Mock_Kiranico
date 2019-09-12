@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+  float: right;
+}
+
+.main_panel{
+	background: rgba(15, 15, 15, 0.7);
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+
+.finder_panel{
+	display: inline-block;
+	margin-right: 100px;
+}
+
+.finder_table{
+	padding-left: 20px;
+	color: white;
+}
+
+.finder_table td{
+	text-align: center;
+}
+
+.info_header img{
+	display: inline-block;
+	vertical-align:middle;
+}
+.info_header p{
+	display: inline-block;
+	vertical-align:middle;
+	color: #d3d3d3;
+}
+
+.armors_panel{
+	display: inline-block;
+}
+
+.armor_table td{
+	background: rgba(76, 175, 80, 0.1);
+	color: #b9b9b9;
+	text-align: center;
+}
+
+#skill_cell {
+	text-align: left;
+	padding-left: 15px;
+}
+
+
+
+
+
+
+
+

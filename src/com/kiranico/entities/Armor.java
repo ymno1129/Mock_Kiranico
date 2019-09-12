@@ -1,9 +1,14 @@
 package com.kiranico.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.kiranico.misc.ArmorQuery;
 
 @Entity
 @Table(name="armor_combined")
@@ -199,4 +204,21 @@ public class Armor {
 		this.defense_dragon = defense_dragon;
 	}
 	private Integer defense_dragon;
+
+	public boolean meetRequirement(ArmorQuery aq) {
+		boolean meet_slots = 
+				this.getNum_level1_slots() >= aq.getNum_lvl1_slots() &&
+				this.getNum_level2_slots() >= aq.getNum_lvl2_slots() &&
+				this.getNum_level3_slots() >= aq.getNum_lvl3_slots();
+		if (!meet_slots) return false;
+		
+		Map<String, Integer> armor_skills = new HashMap<String, Integer>();
+		if (this.getSkill1_name() != null) armor_skills.put(this.getSkill1_name(), 1);
+		if (this.getSkill2_name() != null) armor_skills.put(this.getSkill2_name(), 1);
+		boolean meet_skills = false;
+		if (!aq.getSkill1().equals("--")) meet_skills = armor_skills.containsKey(aq.getSkill1());
+		if (!meet_skills) return false;
+		if (!aq.getSkill2().equals("--")) meet_skills = armor_skills.containsKey(aq.getSkill2());
+		return meet_skills;
+	}
 }
